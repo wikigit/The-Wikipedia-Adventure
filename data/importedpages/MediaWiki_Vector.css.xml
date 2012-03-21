@@ -1,0 +1,153 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.6/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.6/ http://www.mediawiki.org/xml/export-0.6.xsd" version="0.6" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <base>http://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.19wmf1</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter"/>
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="108" case="first-letter">Book</namespace>
+      <namespace key="109" case="first-letter">Book talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>MediaWiki:Vector.css</title>
+    <ns>8</ns>
+    <id>23480830</id>
+      <sha1/>
+    <revision>
+      <id>479959130</id>
+      <timestamp>2012-03-03T10:37:51Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>Fix for empty diff-context lines has been deployed</comment>
+      <text xml:space="preserve" bytes="2451">/* Don't display some stuff on the main page */
+body.page-Main_Page #deleteconfirm,
+body.page-Main_Page #t-cite,
+body.page-Main_Page #footer-info-lastmod,
+body.page-Main_Page #siteSub,
+body.page-Main_Page #contentSub,
+body.page-Main_Page h1.firstHeading {
+  display: none !important;
+}
+
+body.page-Main_Page #mp-topbanner {
+  margin-top: 0 !important;
+}
+
+#coordinates {
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  float: right;
+  margin: 0.0em;
+  padding: 0.0em;
+  line-height: 1.5em;
+  text-align: right;
+  text-indent: 0;
+  font-size: 85%;
+  text-transform: none;
+  white-space: nowrap;
+}
+
+/* For positioning icons at top-right, used in Templates
+   "Spoken Article" and "Featured Article" */
+div.topicon {
+  position: absolute;
+  top: -2em;
+  margin-right: -10px;
+  display: block !important;
+}
+
+/* FR topicon position */
+div.flaggedrevs_short {
+  position: absolute;
+  top: -3em;
+  right: 80px;
+  z-index: 1;
+  margin-left: 0;
+  /* Because this is not yet a topicon, we emulate it's behavior, this ensure compatibility with edit lead section gadget */
+  margin-right: -10px;
+}
+
+/* Menu over FR box */
+div.vectorMenu div {
+  z-index: 2;
+}
+
+/* Display "From Wikipedia, the free encyclopedia" */
+#siteSub {
+  display: inline;
+  font-size: 92%;
+  font-weight: normal;
+}
+
+/* {{tl|Link GA}} */
+#mw-panel div.portal div.body ul li.GA {
+  background: url("//upload.wikimedia.org/wikipedia/commons/4/42/Monobook-bullet-ga.png") no-repeat 0% 0%;
+  /* @noflip */
+  margin-left: -1.25em;
+  /* @noflip */
+  padding-left: 1.25em;
+}
+
+/* {{tl|Link FA}} */
+#mw-panel div.portal div.body ul li.FA {
+  background: url("//upload.wikimedia.org/wikipedia/commons/d/d4/Monobook-bullet-star.png") no-repeat 0% 0%;
+  /* @noflip */
+  margin-left: -1.25em;
+  /* @noflip */
+  padding-left: 1.25em;
+}
+
+/* Increase fontsize of diffs. Remove when 1.19 is live. */
+td.diff-context, td.diff-addedline, td.diff-deletedline {
+  font-size: 85%;
+  vertical-align: top;
+}
+
+/* Adjust font-size for inline HTML generated TeX formulae */
+span.texhtml {
+  font-size: 118%;
+}
+
+/* Blue instead of yellow padlock for secure links. */
+#bodyContent a.external[href ^="https://"],
+.link-https {
+  background: url("//upload.wikimedia.org/wikipedia/en/0/00/Lock_icon_blue.gif") center right no-repeat;
+  /* @noflip */
+  padding-right: 16px;
+}
+
+/* (soft) redirect styling (bug:26544) */
+div.redirectMsg img {
+  vertical-align: text-bottom;
+}
+.redirectText {
+  font-size: 150%;
+  margin: 5px;
+}</text>
+    </revision>
+  </page>
+</mediawiki>

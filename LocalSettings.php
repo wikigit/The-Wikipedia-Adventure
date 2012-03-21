@@ -35,7 +35,7 @@ $wgStylePath        = "$wgScriptPath/skins";
 
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
-$wgLogo             = "$wgStylePath/common/images/wiki.png";
+$wgLogo             = "$wgStylePath/common/images/Wiki.png";
 
 ## UPO means: this is also a user preference option
 
@@ -70,7 +70,7 @@ $wgUseImageMagick = true;
 $wgImageMagickConvertCommand = "/usr/bin/convert";
 
 # InstantCommons allows wiki to use images from http://commons.wikimedia.org
-$wgUseInstantCommons  = false;
+$wgUseInstantCommons  = true;
 
 ## If you use ImageMagick (or any other shell command) on a
 ## Linux server, this will need to be set to the name of an
@@ -105,9 +105,9 @@ $wgDefaultSkin = "vector";
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
-$wgRightsUrl  = "http://creativecommons.org/licenses/by-sa/3.0/";
+$wgRightsUrl  = "http://wikimediafoundation.org";
 $wgRightsText = "Creative Commons Attribution-ShareAlike License";
-$wgRightsIcon = "{$wgStylePath}/common/images/cc-by-sa.png";
+$wgRightsIcon = "{$wgStylePath}/common/images/wikimedia-button.png";
 # $wgRightsCode = ""; # Not yet used
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
@@ -129,8 +129,19 @@ require_once( "$IP/extensions/WikiEditor/WikiEditor.php" );
 require_once( "$IP/extensions/Vector/Vector.php" );
 require_once( "$IP/extensions/Renameuser/Renameuser.php" );
 require_once( "$IP/extensions/Nuke/Nuke.php" );
-
+require_once( "$IP/extensions/Interwiki/Interwiki.php" );
+require_once( "$IP/extensions/Collection/Collection.php" );
 
 # End of automatically generated settings.
 # Add more configuration options below.
 
+$wgDisableCounters = true;
+
+$wgGroupPermissions['*']['interwiki'] = false;
+$wgGroupPermissions['sysop']['interwiki'] = true;
+$wgGroupPermissions['*']['upload'] = true;
+$wgUseTidy = true;
+$wgVectorUseSimpleSearch = true;
+$wgDefaultSkin = 'vector';
+$wgVectorUseIconWatch = true;
+$wgShowIPinHeader = false;

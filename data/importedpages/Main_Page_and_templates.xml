@@ -1,0 +1,1879 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.6/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.6/ http://www.mediawiki.org/xml/export-0.6.xsd" version="0.6" xml:lang="en">
+  <siteinfo>
+    <sitename>Wikipedia</sitename>
+    <base>http://en.wikipedia.org/wiki/Main_Page</base>
+    <generator>MediaWiki 1.19wmf1</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">Wikipedia</namespace>
+      <namespace key="5" case="first-letter">Wikipedia talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+      <namespace key="100" case="first-letter">Portal</namespace>
+      <namespace key="101" case="first-letter">Portal talk</namespace>
+      <namespace key="108" case="first-letter">Book</namespace>
+      <namespace key="109" case="first-letter">Book talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>Main Page</title>
+    <ns>0</ns>
+    <id>15580374</id>
+      <sha1/>
+    <revision>
+      <id>473360982</id>
+      <timestamp>2012-01-26T17:28:07Z</timestamp>
+      <contributor>
+        <username>Magioladitis</username>
+        <id>1862829</id>
+      </contributor>
+      <minor/>
+      <comment>[[Help:Reverting|Reverted]] edits by [[Special:Contributions/Magioladitis|Magioladitis]] ([[User talk:Magioladitis|talk]]) to last version by David Levy</comment>
+      <text xml:space="preserve" bytes="6393">&lt;!--        BANNER ACROSS TOP OF PAGE        --&gt;
+{| id=&quot;mp-topbanner&quot; style=&quot;width:100%; background:#f9f9f9; margin:1.2em 0 6px 0; border:1px solid #ddd;&quot;
+| style=&quot;width:61%; color:#000;&quot; |
+&lt;!--        &quot;WELCOME TO WIKIPEDIA&quot; AND ARTICLE COUNT        --&gt;
+{| style=&quot;width:280px; border:none; background:none;&quot;
+| style=&quot;width:280px; text-align:center; white-space:nowrap; color:#000;&quot; |
+&lt;div style=&quot;font-size:162%; border:none; margin:0; padding:.1em; color:#000;&quot;&gt;Welcome to [[Wikipedia]],&lt;/div&gt;
+&lt;div style=&quot;top:+0.2em; font-size:95%;&quot;&gt;the [[free content|free]] [[encyclopedia]] that [[Wikipedia:Introduction|anyone can edit]].&lt;/div&gt;
+&lt;div id=&quot;articlecount&quot; style=&quot;font-size:85%;&quot;&gt;[[Special:Statistics|{{NUMBEROFARTICLES}}]] articles in [[English language|English]]&lt;/div&gt;
+|}
+&lt;!--        PORTAL LIST ON RIGHT-HAND SIDE        --&gt;
+| style=&quot;width:13%; font-size:95%;&quot; |
+* [[Portal:Arts|Arts]]
+* [[Portal:Biography|Biography]]
+* [[Portal:Geography|Geography]]
+| style=&quot;width:13%; font-size:95%;&quot; |
+* [[Portal:History|History]]
+* [[Portal:Mathematics|Mathematics]]
+* [[Portal:Science|Science]]
+| style=&quot;width:13%; font-size:95%;&quot; |
+* [[Portal:Society|Society]]
+* [[Portal:Technology|Technology]]
+* '''[[Portal:Contents/Portals|All&amp;nbsp;portals]]'''
+|}
+&lt;!--        MAIN PAGE BANNER        --&gt;
+{{#if:{{Main Page banner}}|
+&lt;table id=&quot;mp-banner&quot; style=&quot;width: 100%; margin:4px 0 0 0; background:none; border-spacing: 0px;&quot;&gt;
+&lt;tr&gt;&lt;td class=&quot;MainPageBG&quot; style=&quot;text-align:center; padding:0.2em; background-color:#fffaf5; border:1px solid #f2e0ce; color:#000; font-size:100%;&quot;&gt;{{Main Page banner}}
+&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+}}
+&lt;!--        TODAY'S FEATURED CONTENT        --&gt;
+{| id=&quot;mp-upper&quot; style=&quot;width: 100%; margin:4px 0 0 0; background:none; border-spacing: 0px;&quot;
+&lt;!--        TODAY'S FEATURED ARTICLE; DID YOU KNOW        --&gt;
+| class=&quot;MainPageBG&quot; style=&quot;width:55%; border:1px solid #cef2e0; background:#f5fffa; vertical-align:top; color:#000;&quot; |
+{| id=&quot;mp-left&quot; style=&quot;vertical-align:top; background:#f5fffa;&quot;
+! style=&quot;padding:2px;&quot; | &lt;h2 id=&quot;mp-tfa-h2&quot; style=&quot;margin:3px; background:#cef2e0; font-size:120%; font-weight:bold; border:1px solid #a3bfb1; text-align:left; color:#000; padding:0.2em 0.4em;&quot;&gt;{{#ifexpr:{{formatnum:{{PAGESIZE:Wikipedia:Today's featured article/{{#time:F j, Y}}}}|R}}&gt;150|Today's featured article|Featured article&amp;ensp;&lt;span style=&quot;font-size:85%; font-weight:normal;&quot;&gt;(Check back later for today's.)&lt;/span&gt;}}&lt;/h2&gt;
+|-
+| style=&quot;color:#000;&quot; | &lt;div id=&quot;mp-tfa&quot; style=&quot;padding:2px 5px&quot;&gt;{{#ifexpr:{{formatnum:{{PAGESIZE:Wikipedia:Today's featured article/{{#time:F j, Y}}}}|R}}&gt;150|{{Wikipedia:Today's featured article/{{#time:F j, Y}}}}|{{Wikipedia:Today's featured article/{{#time:F j, Y|-1 day}}}}}}&lt;/div&gt;
+|-
+! style=&quot;padding:2px;&quot; | &lt;h2 id=&quot;mp-dyk-h2&quot; style=&quot;margin:3px; background:#cef2e0; font-size:120%; font-weight:bold; border:1px solid #a3bfb1; text-align:left; color:#000; padding:0.2em 0.4em;&quot;&gt;Did you know...&lt;/h2&gt;
+|-
+| style=&quot;color:#000; padding:2px 5px 5px;&quot; | &lt;div id=&quot;mp-dyk&quot;&gt;{{Did you know}}&lt;/div&gt;
+|}
+| style=&quot;border:1px solid transparent;&quot; |
+&lt;!--        IN THE NEWS; ON THIS DAY        --&gt;
+| class=&quot;MainPageBG&quot; style=&quot;width:45%; border:1px solid #cedff2; background:#f5faff; vertical-align:top;&quot;|
+{| id=&quot;mp-right&quot; style=&quot;width:100%; vertical-align:top; background:#f5faff;&quot;
+! style=&quot;padding:2px;&quot; | &lt;h2 id=&quot;mp-itn-h2&quot; style=&quot;margin:3px; background:#cedff2; font-size:120%; font-weight:bold; border:1px solid #a3b0bf; text-align:left; color:#000; padding:0.2em 0.4em;&quot;&gt;In the news&lt;/h2&gt;
+|-
+| style=&quot;color:#000; padding:2px 5px;&quot; | &lt;div id=&quot;mp-itn&quot;&gt;{{In the news}}&lt;/div&gt;
+|-
+! style=&quot;padding:2px;&quot; | &lt;h2 id=&quot;mp-otd-h2&quot; style=&quot;margin:3px; background:#cedff2; font-size:120%; font-weight:bold; border:1px solid #a3b0bf; text-align:left; color:#000; padding:0.2em 0.4em;&quot;&gt;On this day...&lt;/h2&gt;
+|-
+| style=&quot;color:#000; padding:2px 5px 5px;&quot; | &lt;div id=&quot;mp-otd&quot;&gt;{{Wikipedia:Selected anniversaries/{{#time:F j}}}}&lt;/div&gt;
+|}
+|}
+&lt;!--        TODAY'S FEATURED LIST        --&gt;&lt;!-- CONDITIONAL: SHOW/HIDE FROM HERE --&gt;{{#switch:{{CURRENTDAYNAME}}|Monday=
+&lt;table id=&quot;mp-middle&quot; style=&quot;margin:4px 0 0 0; width:100%; background:none; border-spacing: 0px;&quot;&gt;
+&lt;tr&gt;
+&lt;td class=&quot;MainPageBG&quot; style=&quot;width:100%; border:1px solid #f2cedd; background:#fff5fa; vertical-align:top; color:#000;&quot;&gt;
+&lt;table id=&quot;mp-center&quot; style=&quot;vertical-align:top; background:#fff5fa; color:#000; width:100%&quot;&gt;
+&lt;tr&gt;
+&lt;th style=&quot;padding:2px;&quot;&gt;&lt;h2 id=&quot;mp-tfl-h2&quot; style=&quot;margin:3px; background:#f2cedd; font-size:120%; font-weight:bold; border:1px solid #bfa3af; text-align:left; color:#000; padding:0.2em 0.4em&quot;&gt;Today's featured list&lt;/h2&gt;&lt;/th&gt;
+&lt;/tr&gt;&lt;tr&gt;
+&lt;td style=&quot;color:#000;&quot;&gt;&lt;div id=&quot;mp-tfl&quot; style=&quot;padding:2px 5px;&quot;&gt;{{#ifexist:Wikipedia:Today's featured list/{{#time:F j, Y}}|{{Wikipedia:Today's featured list/{{#time:F j, Y}}}}|{{TFLempty}}}}&lt;/div&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;!--        END TODAY'S FEATURED LIST        --&gt;&lt;!-- CONDITIONAL: SHOW/HIDE TO HERE --&gt;|}}
+&lt;!--        TODAY'S FEATURED PICTURE        --&gt;
+{| id=&quot;mp-lower&quot; style=&quot;margin:4px 0 0 0; width:100%; background:none; border-spacing: 0px;&quot;
+| class=&quot;MainPageBG&quot; style=&quot;width:100%; border:1px solid #ddcef2; background:#faf5ff; vertical-align:top; color:#000;&quot;|
+{| id=&quot;mp-bottom&quot; style=&quot;vertical-align:top; background:#faf5ff; color:#000; width:100%&quot;
+! style=&quot;padding:2px;&quot; | &lt;h2 id=&quot;mp-tfp-h2&quot; style=&quot;margin:3px; background:#ddcef2; font-size:120%; font-weight:bold; border:1px solid #afa3bf; text-align:left; color:#000; padding:0.2em 0.4em&quot;&gt;{{#ifexist:Template:POTD protected/{{#time:Y-m-d}}|Today's featured picture|Featured picture&amp;ensp;&lt;span style=&quot;font-size:85%; font-weight:normal;&quot;&gt;(Check back later for today's.)&lt;/span&gt;}}&lt;/h2&gt;
+|-
+| style=&quot;color:#000; padding:2px;&quot; | &lt;div id=&quot;mp-tfp&quot;&gt;{{#ifexist:Template:POTD protected/{{#time:Y-m-d}}|{{POTD protected/{{#time:Y-m-d}}}}|{{POTD protected/{{#time:Y-m-d|-1 day}}}}}}&lt;/div&gt;
+|}
+|}
+&lt;!--        SECTIONS AT BOTTOM OF PAGE        --&gt;
+&lt;div id=&quot;mp-other&quot; style=&quot;padding-top:4px; padding-bottom:2px;&quot;&gt;
+== Other areas of Wikipedia ==
+{{Other areas of Wikipedia}}
+&lt;/div&gt;&lt;div id=&quot;mp-sister&quot;&gt;
+== Wikipedia's sister projects ==
+{{Wikipedia's sister projects}}
+&lt;/div&gt;&lt;div id=&quot;mp-lang&quot;&gt;
+== Wikipedia languages ==
+{{Wikipedia languages}}
+&lt;/div&gt;
+&lt;!--        INTERWIKI STRAPLINE        --&gt;
+&lt;noinclude&gt;[[Category:Article Feedback Blacklist| ]] {{Main Page interwikis}}&lt;/noinclude&gt;__NOTOC____NOEDITSECTION__</text>
+    </revision>
+  </page>
+  <page>
+    <title>Wikipedia:Selected anniversaries/March 21</title>
+    <ns>4</ns>
+    <id>492370</id>
+      <sha1/>
+    <revision>
+      <id>483041705</id>
+      <timestamp>2012-03-21T04:46:27Z</timestamp>
+      <contributor>
+        <username>Howcheng</username>
+        <id>314721</id>
+      </contributor>
+      <comment>let's get Asia represented</comment>
+      <text xml:space="preserve" bytes="7312">&lt;noinclude&gt;{{../doc}}
+{{divhide|Staging area}}
+==Images==
+Use only ONE image at a time
+&lt;gallery&gt;  
+File:Alcatraz Island.jpg|Alcatraz Island
+File:Flag of Namibia.svg|Flag of Namibia
+File:Coat of Arms of Namibia.svg|Coat of Arms of Namibia
+File:Namibia.SamNujoma.01.jpg|President Sam Nujoma of Namibia
+File:Jacques-Louis David 018.jpg|Pope Pius VII
+File:BenitoJuarez.jpg|President Benito Juárez of Mexico
+File:Tcranmer.JPG|Archbishop Thomas Cranmer
+File:Thai 4 Buddies.jpg|Four-faced Phra Phrom statue, Erawan Shrine, Bangkok
+File:Bundesarchiv Bild 146-1976-130-51, Rudolf-Christoph v. Gersdorff.jpg|Rudolf Christoph von Gersdorff
+&lt;/gallery&gt;
+
+==Ineligible==
+{|class=&quot;wikitable&quot;
+|-
+!Blurb
+!Reason
+|-
+| '''[[Benito Juárez|Benito Juárez Day]]''' in [[Fiestas Patrias (Mexico)|Mexico]];
+| refimprove
+|-
+| '''[[World Poetry Day]]'''
+| stub
+|-
+| [[1801]] – The '''[[Battle of Alexandria]]''' was fought between British and French forces near the ruins of [[Nicopolis]] in Egypt.
+|{{tl|more footnotes}}
+|-
+| [[1804]] – The '''''[[Napoleonic Code]]''''', the French [[civil code]] established under [[Napoleon]], entered into force, eventually strongly influencing the law of many other countries.
+|unreferenced section, refimprove section
+|-
+| [[1943]] – [[World War II]]: [[Wehrmacht]] officer '''[[Rudolf Christoph Freiherr von Gersdorff|Rudolf Christoph von Gersdorff]]''' attempted to assassinate [[Adolf Hitler]] by [[suicide bombing]], but had to abort the plan at the last minute.
+| refimprove
+|-
+| [[1960]] – Police in [[Sharpeville, Gauteng|Sharpeville]], South Africa, '''[[Sharpeville massacre|opened fire]]''' on a group of unarmed black demonstrators who were protesting [[pass laws]], killing almost 70 people and wounding about 180 others.
+|Tagged with {{tl|expand}}
+|-
+| [[1968]] – [[War of Attrition]]: The [[Israel Defense Forces]] clashed with the combined forces of the [[Palestine Liberation Organization]] and the [[Jordanian Army]] in the '''[[Battle of Karameh]]'''.
+| neutrality issues
+|-
+| [[1980]] – The United States announced the '''[[1980 Summer Olympics boycott|boycott]]''' of the [[1980 Summer Olympics|Summer Olympics]] in [[Moscow]] to protest the [[Soviet war in Afghanistan|Soviet invasion of Afghanistan]].
+|date not in article, refimprove section
+|}
+
+==Eligible==
+{{*mp}} [[1909]] – The remains of the '''[[Báb]]''', one of three central figures of the [[Bahá'í Faith]], were interred by [[`Abdu'l-Bahá]] in [[Haifa]], present-day Israe].
+{{*mp}} [[1913]] – Over 360 were killed and 20,000 homes destroyed in the '''[[Great Dayton Flood]]''' in [[Dayton, Ohio]].
+{{*mp}} [[1937]] – A police squad, acting under orders from [[Governor of Puerto Rico]] [[Blanton Winship]], '''[[Ponce massacre|opened fire]]''' on demonstrators protesting the arrest of [[Puerto Rican Nationalist Party|Puerto Rican Nationalist]] leader [[Pedro Albizu Campos]], killing 17 people and injuring over 200 others.
+{{*mp}} [[1946]] – The [[St. Louis Rams#Los Angeles Rams (1946–1994)|Los Angeles Rams]] of the [[National Football League]] signed '''[[Kenny Washington (American football)|Kenny Washington]]''', making him the first [[African American]] player in the league since 1933.
+{{*mp}} [[1963]] – The [[List of U.S. federal prisons|U.S. federal prison]] on '''[[Alcatraz Island]]''' in [[San Francisco Bay]], [[California]], was closed.
+{{*mp}} [[2002]] – British schoolgirl '''[[Murder of Milly Dowler|Amanda Dowler]]''' was abducted on her way home from [[Heathside School]] in [[Walton-on-Thames]], [[Surrey]].
+{{divhide|end}}
+&lt;/noinclude&gt;
+'''[[March 21]]''': '''[[World Down Syndrome Day]]'''; '''[[Bahá'í Naw-Rúz|Naw-Rúz]]''' ([[Bahá'í calendar]])&lt;!--This is the part of Norouz that always occurs on March 21--&gt;; '''[[Mother's Day]]''' in the [[Arab world]]; [[List of national independence days|Independence Day]] in '''[[Namibia]]''' ([[1990]])
+&lt;div style=&quot;float:right;margin-left:0.5em&quot;&gt;
+[[File:Thomas-Cranmer-ez cropped.jpg|Archbishop Thomas Cranmer|100x100px]]
+&lt;/div&gt;
+{{*mp}} [[630]] – [[Byzantine Empire|Byzantine]] emperor [[Heraclius]] restored the '''[[True Cross]]''' to [[Jerusalem]].
+{{*mp}} [[1556]] – [[Archbishop of Canterbury]] '''[[Thomas Cranmer]]''' ''(pictured)'', one of the founders of [[Anglicanism]], was [[Execution by burning|burnt at the stake]] in [[Oxford]], England, for [[Christian heresy|heresy]].
+{{*mp}} [[1800]] – After [[Papal conclave, 1799–1800|being elected]] as a compromise candidate after several months of stalemate, '''[[Pope Pius VII|Pius&amp;nbsp;VII]]''' was [[Papal Coronation|crowned e]] in [[Venice]] with a [[Papier-mâché Tiara|temporary papal tiara]] made of [[papier-mâché]].
+{{*mp}} [[1871]] – Founder of the [[German Empire]] '''[[Otto von Bismarck]]''' was proclaimed as its first [[Chancellor of the German Empire|Chancellor]].
+{{*mp}} [[1989]] – An article in ''[[Sports Illustrated]]'' alleged that '''[[Pete Rose]]''', the [[Manager (baseball)|manager]] of the [[Major League Baseball]] team [[Cincinnati Reds]], was involved in [[gambling]].
+{{*mp}} [[2006]] – A man using a hammer smashed the statue of [[Phra Phrom]] in the '''[[Erawan Shrine]]''' in [[Bangkok]], Thailand, and was subsequently beaten to death by bystanders.
+&lt;/li&gt;
+{{SelAnnivFooter|Month=March|Day=21}}
+&lt;noinclude&gt;
+[[af:Wikipedia:Uitgesoekte herdenkings/21 Maart]]
+[[ast:Plantía:Efemérides - 21 marzu]]
+[[az:Vikipediya:Tarixdə bu gün/mart 21]]
+[[bs:Šablon:Na današnji dan/21. mart]]
+[[bg:Шаблон:Начална страница 21 март]]
+[[ca:Plantilla:Març 21]]
+[[cs:Wikipedie:Vybraná výročí dne/21. březen]]
+[[da:Wikipedia:Årets dage kort/21. marts]]
+[[de:Wikipedia:Hauptseite/Jahrestage/März/21]]
+[[el:Πύλη:Κύρια/Επιλεγμένα Γεγονότα/21 Μαρτίου]]
+[[es:Plantilla:Efemérides - 21 de marzo]]
+[[eu:Txantiloi:Martxoa 21]]
+[[fa:ویکی‌پدیا:یادبودهای برگزیده/۲۱ مارس]]
+[[ga:Vicipéid:Laethanta roghnaithe/21 Márta]]
+[[gl:Wikipedia:Efemérides destacadas/21 de marzo]]
+[[gan:Wikipedia:許年今日/三月二十一號]]
+[[ko:위키백과:오늘의 역사/3월 21일]]
+[[hr:Wikipedija:Izabrane godišnjice/21. ožujka]]
+[[he:תבנית:היום בהיסטוריה 21 במרץ]]
+[[ka:თარგი:დღის მოვლენები:03-21]]
+[[lt:Šablonas:Kovo 21 dienos įvykiai]]
+[[ms:Wikipedia:Hari ulang tahun pilihan/21 Mac]]
+[[nl:Sjabloon:Geschiedenis 21 maart]]
+[[no:Mal:Mars 21]]
+[[pl:Szablon:Rocznice 21 marca]]
+[[pt:Wikipédia:Efemérides/21 de março]]
+[[ro:Format:Aniversările zilei/21 martie]]
+[[ru:Шаблон:События дня:03-21]]
+[[sl:Wikipedija:Izbrane obletnice/21. marec]]
+[[sr:Шаблон:Догодило се на данашњи дан/21. март]]
+[[fi:Malline:21. maaliskuuta]]
+[[sv:Mall:21 mars]]
+[[ta:விக்கிப்பீடியா:ஆண்டு நிறைவுகள்/மார்ச் 21]]
+[[tt:Үрнәк:21/3 könenä küzätü]]
+[[th:วิกิพีเดีย:วันนี้ในอดีต/21 มีนาคม]]
+[[tr:Vikipedi:Tarihte bugün/21 Mart]]
+[[uk:Вікіпедія:Проект:Цей день в історії/21 березня]]
+[[zh-yue:Wikipedia:當年今日/3月21號]]
+[[zh:Wikipedia:历史上的今天/3月21日]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Wikipedia:Today's featured article/March 21, 2012</title>
+    <ns>4</ns>
+    <id>35073801</id>
+      <sha1/>
+    <revision>
+      <id>481975275</id>
+      <timestamp>2012-03-15T04:52:51Z</timestamp>
+      <contributor>
+        <username>Tbhotch</username>
+        <id>10808929</id>
+      </contributor>
+      <minor/>
+      <text xml:space="preserve" bytes="1732">&lt;div style=&quot;float:left;margin:0.5em 0.9em 0.4em 0;&quot;&gt;[[File:Nuffield College tower.jpg|100px|Nuffield College Tower]]&lt;/div&gt;
+
+The '''[[Buildings of Nuffield College, Oxford|buildings of Nuffield College]]''', one of the [[colleges of the University of Oxford]], are to the west of the city centre of [[Oxford]], England, on the former site of the largely disused basin of the [[Oxford Canal]].  [[Nuffield College, Oxford|Nuffield College]] was founded in 1937 after a donation to [[University of Oxford|the university]] by the car manufacturer [[William Morris, 1st Viscount Nuffield|Lord Nuffield]]. He rejected the initial designs of the architect [[Austen Harrison]], which were heavily influenced by Mediterranean architecture, describing them as &quot;un-English&quot;. Harrison then aimed for &quot;something on the lines of Cotswold domestic architecture&quot;, as Nuffield wanted. The college was built to the revised plans between 1949 and 1960. During construction, the tower, about {{convert|150|ft}} tall, was redesigned to hold the college's library. Reaction to the architecture has been largely unfavourable. It has been described as &quot;Oxford's biggest monument to barren reaction&quot; and &quot;a hodge-podge from the start&quot;. However, the architectural historian [[Nikolaus Pevsner|Sir Nikolaus Pevsner]] thought that the tower helped the Oxford skyline and predicted that it would &quot;one day be loved&quot;. The writer [[Simon Jenkins]] doubted Pevsner's prediction, though, saying that &quot;vegetation&quot; was the &quot;best hope&quot; for the tower, and for the rest of the college too. ('''[[Buildings of Nuffield College, Oxford|more...]]''')&lt;/div&gt;
+
+Recently featured: [[Tom Derrick]] – [[Tom Swift]] – &quot;[[Abyssinia, Henry]]&quot;
+
+{{TFAfooter|Month=March|Year=2012}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:!</title>
+    <ns>10</ns>
+    <id>4459157</id>
+      <sha1/>
+    <restrictions>edit=sysop:move=sysop</restrictions>
+    <revision>
+      <id>113778758</id>
+      <timestamp>2007-03-09T06:48:22Z</timestamp>
+      <contributor>
+        <username>Quarl</username>
+        <id>59118</id>
+      </contributor>
+      <comment>{{template doc}}</comment>
+      <text xml:space="preserve" bytes="40">|&lt;noinclude&gt;{{template doc}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:*mp</title>
+    <ns>10</ns>
+    <id>5442748</id>
+      <sha1/>
+    <revision>
+      <id>378551530</id>
+      <timestamp>2010-08-12T15:33:19Z</timestamp>
+      <contributor>
+        <username>MSGJ</username>
+        <id>42630</id>
+      </contributor>
+      <minor/>
+      <comment>pp redundant</comment>
+      <text xml:space="preserve" bytes="84">&lt;li style=&quot;-moz-float-edge: content-box&quot;&gt;
+&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:-</title>
+    <ns>10</ns>
+    <id>1011446</id>
+      <sha1/>
+    <restrictions>edit=sysop:move=sysop</restrictions>
+    <revision>
+      <id>459274976</id>
+      <timestamp>2011-11-06T11:01:48Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>Enable selective clear</comment>
+      <text xml:space="preserve" bytes="76">&lt;br style=&quot;clear:{{{1|both}}};&quot; /&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Case preserving encode</title>
+    <ns>10</ns>
+    <id>31576815</id>
+      <sha1/>
+    <revision>
+      <id>425906243</id>
+      <timestamp>2011-04-25T22:33:15Z</timestamp>
+      <contributor>
+        <username>Rich Farmbrough</username>
+        <id>82835</id>
+      </contributor>
+      <text xml:space="preserve" bytes="163">{{#ifeq:{{{1}}}|{{lcfirst:{{{1}}}}}
+|{{lcfirst:{{PAGENAMEE:Template:{{{1|}}} }}}}
+|{{PAGENAMEE:Template:{{{1|}}} }}
+}}&lt;noinclude&gt; 
+
+{{Documentation}}
+
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert</title>
+    <ns>10</ns>
+    <id>8387047</id>
+      <sha1/>
+    <revision>
+      <id>448255381</id>
+      <timestamp>2011-09-03T17:40:16Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <text xml:space="preserve" bytes="546">&lt;includeonly&gt;{{#ifeq:{{{sortable|}}}|on|{{ntsh|{{FORMATNUM:{{{1}}}|R}}}}}}{{convert/{{#if:1|{{{2}}}}}|{{FORMATNUM:{{{1}}}|R}}|{{#ifeq:{{#expr:{{{3|0}}}*0}}|0|0}}|{{{3|}}}|{{{4|}}}|{{{5|}}}|{{{6|}}}|{{{7|}}}|{{{8|}}}|r={{#ifeq:{{{sp}}}|us|er|re}}|d=L{{{lk|off}}}A{{#switch:{{{abbr}}}|off=none|def=off|{{{abbr|off}}}}}D{{{disp|b}}}S{{{adj|{{{sing|off}}}}}}|s={{{sigfig|}}}}}&lt;/includeonly&gt;&lt;noinclude&gt;{{Documentation}}&lt;/noinclude&gt;&lt;!--testing code follows--&gt;{{#switch:{{{disp}}}|br={{convert/test/Dbr}}|/={{convert/und}}}}{{convert/test/A{{{abbr|}}}}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/LoffAoffDbSoff</title>
+    <ns>10</ns>
+    <id>13724916</id>
+      <sha1/>
+    <revision>
+      <id>435306067</id>
+      <timestamp>2011-06-20T17:29:53Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <comment>let break</comment>
+      <text xml:space="preserve" bytes="320">&lt;includeonly&gt;{{convert/numdisp|{{{1}}}}} {{#ifeq:{{{1}}}|1|{{{n}}}|{{{l|{{{n}}}s}}}}} ({{convert/{{#if:{{{2|}}}|{{{o}}}|{{{3}}}}}|{{{1}}}|({{{1}}})*{{{b}}}|{{#if:{{{2|}}}|{{{3|}}}|{{{4|}}}}}|{{{s|}}}|r={{{r}}}|j={{{j}}}|d=LoffAonSoff}})&lt;/includeonly&gt;&lt;noinclude&gt;
+[[Category:Subtemplates of Template Convert]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/LoffAonSoff</title>
+    <ns>10</ns>
+    <id>13726371</id>
+      <sha1/>
+    <revision>
+      <id>417894405</id>
+      <timestamp>2011-03-09T03:00:26Z</timestamp>
+      <contributor>
+        <username>Plastikspork</username>
+        <id>5075409</id>
+      </contributor>
+      <comment>pp</comment>
+      <text xml:space="preserve" bytes="976">{{convert/outsep&lt;noinclude&gt;{{{?}}}&lt;/noinclude&gt;
+| 1={{convert/{{#if:{{{4|}}}|s}}{{#if:{{{3|}}}|p}}round&lt;noinclude&gt;{{{?}}}&lt;/noinclude&gt;|{{{1}}}|{{#expr:( {{{2|1}}} )/{{{b|4}}}}}|{{{3}}}|{{{4}}}|{{{j}}}
+}}| sep={{#if:{{{u|}}}
+   |{{#ifexpr:abs( ( {{{2|1}}} )/{{{b|4}}} ) &lt; 20000
+     |&amp;nbsp;|&amp;#32;}}&lt;!--
+--&gt;|&amp;#32;}}|
+2={{#if:{{{u|}}}
+  |{{{u}}}|{{{n}}}}}|
+3={{#if:{{{u|}}}
+  |{{{u|}}}|{{{l|{{{n}}}s}}}}}}}&lt;noinclude&gt;
+{{pp-template}}
+This '''[[Template:Convert/LoffAonSoff]]''' invokes [[Template:Convert/outsep]] to display the converted result and unit symbol (if any), with {sep} to control wrapping. A number &lt; 1,000 is not wrapped, or if the unit symbol is used, then only numbers above 20,000 can wrap at the unit symbol. If the unit symbol {{{u}}} is not set (such as with &quot;acre&quot;), then it passes both the singular unit name {{{n}}} and plural, {{{l}}}, or &quot;{{{n}}}s&quot; when no specific plural name has been defined.
+
+[[Category:Subtemplates of Template Convert]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/ft</title>
+    <ns>10</ns>
+    <id>13741011</id>
+      <sha1/>
+    <revision>
+      <id>424435831</id>
+      <timestamp>2011-04-16T22:22:32Z</timestamp>
+      <contributor>
+        <username>Plastikspork</username>
+        <id>5075409</id>
+      </contributor>
+      <comment>link</comment>
+      <text xml:space="preserve" bytes="382">{{convert/{{#ifeq:{{{4}}}|in|and/in|{{{d}}}}}|{{{1}}}|{{{2|}}}|{{{3|}}}|{{{4|}}}|{{{5|}}}|{{{6|}}}|{{{7|}}}|{{{8|}}}|s={{{s|}}}|r={{{r}}}|d={{{d}}}|u=ft 
+|n=foot
+|l=feet
+|t=Foot (unit)
+|o=m
+|b=0.3048
+|j={{#ifexpr: floor({{{1|9}}}) = ({{{1|9}}}) |-0-{{{j|0}}}|-0.515985037-{{{j|0}}} }}}}&lt;noinclude&gt;
+{{pp-template|small=yes}}
+[[Category:Subtemplates of Template Convert]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/m</title>
+    <ns>10</ns>
+    <id>13740523</id>
+      <sha1/>
+    <revision>
+      <id>444399018</id>
+      <timestamp>2011-08-12T06:56:28Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <comment>Undid revision 444350606 by [[Special:Contributions/Jimp|Jimp]] ([[User talk:Jimp|talk]])</comment>
+      <text xml:space="preserve" bytes="294">{{convert/{{{d}}}|{{{1}}}|{{{2|}}}|{{{3|}}}|{{{4|}}}|{{{5|}}}|{{{6|}}}|{{{7|}}}|s={{{s|}}}|r={{{r}}}
+|u=m
+|n=met{{{r}}}
+|t=metre
+|o=ft{{#ifexpr:{{{1|4}}}&gt;0 and {{{1|4}}}&lt;3|in}}
+|b=1
+|j=0-{{{j|0}}}}}&lt;noinclude&gt;
+{{pp-template|small=yes}}
+[[Category:Subtemplates of Template Convert]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/numdisp</title>
+    <ns>10</ns>
+    <id>22264471</id>
+      <sha1/>
+    <revision>
+      <id>436596508</id>
+      <timestamp>2011-06-28T00:45:13Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <comment>merged</comment>
+      <text xml:space="preserve" bytes="3979">&lt;noinclude&gt;&lt;!--
+--============================================================
+-- Display a number, with optional fraction part: 6+3/8
+--============================================================
+--                                (see NOTES at bottom)
+--
+--&gt;&lt;/noinclude&gt;{{#if:{{#titleparts:{{{1|-1200-3~118}}}|1|2}}
+|{{Convert/numdisp/frac
+  |{{{1|-1200-3/118}}}|{{#titleparts:{{{1|-1200-3/118}}}|1|1}}|{{#titleparts:{{{1|-1200-3/118}}}|1|2}}}}&lt;!--split at &quot;/&quot;
+--else--&gt;|{{#ifexpr:{{{1|-14000.00}}} &lt; 0
+  |&lt;!--then re-build negative number (see NOTE Z4 below)
+--&gt;{{formatnum:
+  {{padright:−&lt;!--&amp;minus--&gt;{{#expr:-{{{1|-14000.00}}} }}&lt;!--endexpr
+    --put decimal if needed--&gt;{{
+     #ifexpr:{{{1|-14000.00}}}0={{{1|-14000.00}}}
+     and {{{1|-14000.00}}}=floor( {{{1|-14000.00}}} )|.}}&lt;!--
+  --&gt;|{{strlen_short|{{{1|-14000.00}}}|}}&lt;!--endstrlen_short
+    --&gt;|0}}&lt;!--endpadright end-zeroes &quot;0&quot; to original length
+  --&gt;}}&lt;!--endformatnum
+  else--&gt;|{{formatnum: {{{1|6000.500}}} }}}}&lt;!--endif {1}&lt;0
+--&gt;}}&lt;noinclude&gt;&lt;!--endif {#titleparts..}
+--------------------------------------------------------------
+--NOTES:
+--     [ These comments are skipped by &lt;noinclude&gt; and not sent
+--       in formatted Internet pages, only during edit. ]
+--
+--NOTE A1: This template processes a number, for display, by
+--     checking to display a fraction part (&quot;/&quot;), else it
+--     will check for negative to display a unicode &amp;minus
+--     and {{formatnum:{{#expr:abs( {{{1|-6000}}} )}}}} such
+--     as &quot;-6000&quot; with a full minus sign rather than hyphen.
+--     In 99% of Wikipedia usage, there are no fractions.
+--
+--NOTE D2: The check, for fraction parts, uses parser-function
+--     #titleparts to split the number at &quot;/&quot; (if any) and
+--     then checks part 2 (the denominator, after the slash)
+--     to trigger use of {{Convert/numdisp/fracparts}}. Hence,
+--         #if: {{#titleparts:{{{1|6+3/8}}}|1|2}}
+--     will be true if a denominator exists (such as &quot;8&quot;).
+--
+--NOTE N3: This template uses minimal expansion depth of the
+--     if-else logic by checking for &quot;/&quot; before invoking the
+--     nested subtemplate {{Convert/numdisp/fracparts}}. The
+--     check for a negative number increases the nesting depth
+--     by 1 level to apply abs({1}) in a nested {#expr:} parser
+--     function, to use the absolute value of the amount {1}.
+--
+--NOTE Z4: Any end-zeroes on a decimal are preserved by not
+--     using positive amounts in an expression, and for rare
+--     negative amounts, the &amp;minus with inverse -{1} is padded
+--     by {padright:} with end-zeroes &quot;0&quot; to {strlen_short} but
+--     uses #ifexpr:{1}0={1} and floor({1})={1} to put &quot;.&quot;.
+--     So, {strlen_short} keeps minimal expansion depth of +2.
+--
+-- WARNING: *** DO NOT DELETE COMMENTS FROM THIS TEMPLATE ***
+--      Unless these comments are readily available, people
+--      might tinker with the coding (or rename templates),
+--      in hopes to clarify operation because these comments
+--      were not nearby to explain the issues. Having these
+--      comments only on a doc-page increases the danger of
+--      explanations no longer matching the current coding.
+--      UPDATE these comments to match changes to the template.
+--      UPDATE the HISTORY during major changes (not typos).
+--
+--------------------------------------------------------------
+--HISTORY:
+--03Apr09 Created by [[User:Jimp]] on English Wikipedia.
+--19Nov10 Invokes subtemplate only if has denominator (at &quot;/&quot;).
+--19Nov10 Put NOTES comments to explain template coding.
+--19Nov10 Put HISTORY comments to log major changes.
+--19Nov10 Put all parameters on 1 line to avoid newline &quot;2^ /3&quot;
+--20Nov10 Linked {Documentation} to hold any interwiki links.
+--12Feb11 Shows Unicode &amp;minus (&quot;−&quot;) for negative numbers.
+--17Feb11 Used {padright:} to re-add end-zeroes on negatives.
+--17Feb11 Used #ifexpr:{1}0={1} and floor({1})={1}, to put &quot;.&quot;
+--
+ ** Add interwiki links to /doc subpage to avoid changes here **
+--
+--&gt;{{Documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/outsep</title>
+    <ns>10</ns>
+    <id>28698324</id>
+      <sha1/>
+    <revision>
+      <id>419909763</id>
+      <timestamp>2011-03-21T03:00:57Z</timestamp>
+      <contributor>
+        <username>Mifter</username>
+        <id>6362721</id>
+      </contributor>
+      <minor/>
+      <comment>Protected Template:Convert/outsep: [[WP:High-risk templates|Highly visible template]] ([edit=sysop] (indefinite) [move=sysop] (indefinite))</comment>
+      <text xml:space="preserve" bytes="301">{{{1}}}{{#iferror:{{#ifexpr:{{formatnum:{{{1|1050}}}|R}}&lt;1000|&amp;nbsp;|{{{sep|~}}}}}|{{{sep|~}}}}}{{#iferror:{{#ifexpr:abs( {{formatnum:{{{1|5}}}|R}} ) &lt; 1.0001|{{{2}}}|{{{3}}}}}|{{{3}}}}}&lt;noinclude&gt;
+
+[[Category:2010 Convert unit subtemplates]]
+[[Category:Subtemplates of Template Convert]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/round</title>
+    <ns>10</ns>
+    <id>13725624</id>
+      <sha1/>
+    <revision>
+      <id>477178042</id>
+      <timestamp>2012-02-16T13:11:02Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <text xml:space="preserve" bytes="299">&lt;includeonly&gt;{{#ifexpr:{{{2}}}=0|0|{{formatnum:{{rnd|{{{2}}}|({{max/2|{{#expr:({{precision/2010|1{{{1}}}}}+{{{5}}}-0.5+(ln2/ln10))round0}}|{{#expr:1-{{Order of magnitude|{{{2}}}}}}}}})}}}}}}&lt;/includeonly&gt;&lt;noinclude&gt;
+[[Category:Subtemplates of Template Convert]]{{pp-template|small=yes}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Convert/test/A</title>
+    <ns>10</ns>
+    <id>11992127</id>
+      <sha1/>
+    <revision>
+      <id>444432088</id>
+      <timestamp>2011-08-12T12:39:22Z</timestamp>
+      <contributor>
+        <username>Reaper Eternal</username>
+        <id>10639536</id>
+      </contributor>
+      <minor/>
+      <comment>Protected Template:Convert/test/A: [[WP:High-risk templates|Highly visible template]] ([edit=sysop] (indefinite) [move=sysop] (indefinite))</comment>
+      <text xml:space="preserve" bytes="28">&lt;noinclude&gt;empty&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Did you know</title>
+    <ns>10</ns>
+    <id>482254</id>
+      <sha1/>
+    <restrictions>move=sysop:edit=sysop</restrictions>
+    <revision>
+      <id>482996506</id>
+      <timestamp>2012-03-21T00:00:04Z</timestamp>
+      <contributor>
+        <username>DYKUpdateBot</username>
+        <id>11745509</id>
+      </contributor>
+      <comment>Bot automatically updating DYK template with hooks copied from [[Template:Did you know/Queue/1|queue 1]]</comment>
+      <text xml:space="preserve" bytes="3280">&lt;noinclude&gt;
+{{active editnotice}} &lt;!-- See [[Wikipedia:Editnotice]] --&gt;
+{{pp-template}}
+&lt;div style=&quot;border: 1px solid; width: 96%; color: black; padding: 1em; float: left; background: #EFEFEF&quot;&gt;
+{{DYKbox}}
+'''Did you know''' mentions and links to ''new'' articles or articles expanded by a factor of five within the last five days. To propose a new fact for this template, '''make a suggestion''' on the [[Template talk:Did you know|talk page]].
+
+To report an error, see [[Wikipedia:Main Page/Errors|Main Page errors]]. 
+
+Admins:
+*Before updating please [[Wikipedia:Did you know#Pictures|protect the featured image]].
+*After updating please [{{fullurl:Main Page|action=purge}} purge the cache of the Main Page] so that the updated version appears.&lt;/div&gt;
+__NOTOC__
+{{clear}}
+==Next update==
+{{DYK-Refresh}}
+
+==Current hooks==
+{|
+|&lt;/noinclude&gt;
+''From Wikipedia's [[Wikipedia:Recent additions|newest content]]:''
+&lt;!--Hooks--&gt;
+&lt;div style=&quot;float:right;margin-left:0.5em;&quot;&gt;
+[[File:Victoria Fountain Old Steine Brighton.jpg|100x100px|Victoria Fountain at Old Steine Gardens]]
+&lt;/div&gt;
+{{*mp}}... that Sir [[John Cordy Burrows]] is responsible for the Victoria Fountain ''(pictured)'' at the '''[[Old Steine Gardens]]'''?
+{{*mp}}... that the [[Chicago Housing Authority]]{{`s}} renovation of the '''[[Dearborn Homes]]''' housing project includes adding [[neo-Georgian]] [[Quoin (architecture)|quoin]]s and ball-topped [[gable]]s to the brick high-rises?
+{{*mp}}... that the German teleplay '''''[[Jeder stirbt für sich allein (1962 film)|Jeder stirbt für sich allein]]''''', about [[Otto and Elise Hampel]], who were executed by the Third Reich, was directed by [[Falk Harnack]], who lost several family members to Nazi executions?
+{{*mp}}... that the '''[[1879 Michigan Wolverines football team|1879 Michigan football team]]''' defeated [[Racine College]], 1–0, in the first intercollegiate football game in the school's history?
+{{*mp}}... that [[dormouse|dormice]] benefit from [[charcoal|charcoal burning]] at '''[[Croes Robert Wood]]''', near [[Monmouth]]?
+{{*mp}}... that '''''[[De Typhoon]]''''', a Dutch paper founded during [[World War&amp;nbsp;II]] by the [[Dutch resistance]], merged in 1992 with '''[[De Zaanlander|a competing local paper]]''' that had collaborated with the Germans during the war?
+&lt;!--HooksEnd--&gt;
+
+{{-}}
+&lt;div style=&quot;text-align: right;&quot; class=&quot;noprint&quot;&gt;'''[[Wikipedia:Recent additions|Archive]]''' &amp;ndash; '''[[Wikipedia:Your first article|Start a new article]]''' &amp;ndash; '''[[Template talk:Did you know|Nominate an article]]'''&lt;/div&gt;&lt;noinclude&gt;
+|{{DYKbox}}
+|}
+[[Category:Wikipedia Did you know]]
+[[Category:Wikipedia Did you know templates]]
+
+[[af:Sjabloon:Het u geweet]]
+[[da:Skabelon:Vidste du at...]]
+[[de:Vorlage:Hauptseite Schon gewusst]]
+[[dsb:Pśedłoga:Zajmnostki]]
+[[eo:Ŝablono:ĈefPaĝo/ĈuViSciasKe]]
+[[es:Plantilla:Sabías que]]
+[[fi:Malline:Tiesitkö, että...]]
+[[fr:Modèle:Le saviez-vous ?]]
+[[he:תבנית:הידעת?]]
+[[hsb:Předłoha:HS-Wěš zo]]
+[[lv:Veidne:Vai tu zināji]]
+[[nl:Sjabloon:Hoofdpagina - wist je dat]]
+[[pl:Szablon:Czy wiesz]]
+[[pt:Predefiniחדo:Sabia que]]
+[[ru:Шаблон:Знаете ли вы]]
+[[simple:Template:Did you know]]
+[[sk:Šablףna:Vedeli ste]]
+[[sv:Mall:Visste du att]]
+[[zh:Template:Dyk]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:In the news</title>
+    <ns>10</ns>
+    <id>482256</id>
+      <sha1/>
+    <revision>
+      <id>482800891</id>
+      <timestamp>2012-03-19T22:54:00Z</timestamp>
+      <contributor>
+        <username>Spencer</username>
+        <id>1667683</id>
+      </contributor>
+      <comment>move pictured item to top (same date)</comment>
+      <text xml:space="preserve" bytes="1595">{{In the news/image
+ |image  = Women's Super G at Whistler Creekside closeup cropped.jpg
+ |size   = 100x100px
+ |title  = Lindsey Vonn
+ |link   = Women's Super G at Whistler Creekside closeup.jpg
+ |border = no
+ |alt    = Lindsey Vonn
+}}
+{{*mp|March 18}} [[Lindsey Vonn]] ''(pictured)'' and [[Marcel Hirscher]] win the '''[[2012 Alpine Skiing World Cup|Alpine Skiing World Cup]]'''.
+{{*mp|March 18}} '''[[George Tupou V]]''', the King of Tonga, dies in Hong Kong at the age of 63.
+{{*mp|March 18}} [[Joachim Gauck]] is '''[[German presidential election, 2012|elected]]''' [[President of Germany]].
+{{*mp|March 17}} '''[[Pope Shenouda III of Alexandria|Pope Shenouda III]]''', the head of the [[Coptic Orthodox Church of Alexandria]], dies at the age of 88.
+{{*mp|March 16}} '''[[Sachin Tendulkar]]''' of India becomes the first cricketer to score [[List of international cricket centuries by Sachin Tendulkar|100 international cricket centuries]].
+{{*mp|March 16}} [[Nicolae Timofti]] is '''[[Moldovan presidential election, 2011–2012|elected]]''' [[President of Moldova]].
+
+&lt;!--  Please consider keeping ongoing news stories on ITN if the article keeps getting updated.  --&gt;&lt;div style=&quot;text-align: right;&quot; class=&quot;noprint&quot;&gt;'''[[2011–2012 Syrian uprising|Conflict in Syria]]''' – '''[[n:Main Page|Wikinews]]''' – '''{{#ifexist:Deaths in {{CURRENTYEAR}}|[[Deaths in {{CURRENTYEAR}}|Recent deaths]]|[[Deaths in {{#time:Y|-1 years}}|Recent deaths]]}}''' – '''[[Portal:Current events|More&amp;nbsp;current&amp;nbsp;events...]]'''&lt;/div&gt;&lt;noinclude&gt; 
+{{active editnotice}}
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:In the news/image</title>
+    <ns>10</ns>
+    <id>24288293</id>
+      <sha1/>
+    <revision>
+      <id>427012377</id>
+      <timestamp>2011-05-02T04:58:08Z</timestamp>
+      <contributor>
+        <username>David Levy</username>
+        <id>197557</id>
+      </contributor>
+      <comment>tweaked code to support inclusion or omission of &quot;File:&quot; in parameters</comment>
+      <text xml:space="preserve" bytes="411">{{#if:{{{image|}}}|&lt;div style=&quot;float:right;margin-left:0.5em;&quot;&gt;
+[[{{#ifexist:Media:{{{image}}}|File:{{{image}}}|{{{image}}}}}|{{#if:{{{size|}}}|{{{size}}}|100x100px}}|{{yesno|{{{border|}}}|yes=border}}|{{{title}}}|alt={{#if:{{{alt|}}}|{{{alt}}}|{{{title}}}}}|link={{#if:{{{link|}}}|{{#ifexist:Media:{{{link}}}|File:{{{link}}}|{{{link}}}}}|{{#ifexist:Media:{{{image}}}|File:{{{image}}}|{{{image}}}}}}}]]
+&lt;/div&gt;}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Language</title>
+    <ns>10</ns>
+    <id>3986683</id>
+      <sha1/>
+    <revision>
+      <id>388697393</id>
+      <timestamp>2010-10-04T15:32:09Z</timestamp>
+      <contributor>
+        <username>WOSlinker</username>
+        <id>3138265</id>
+      </contributor>
+      <comment>remove {{pp-template}}</comment>
+      <text xml:space="preserve" bytes="602">{{#iferror:&lt;!--
+
+   --&gt;{{Language/&lt;!--
+       --&gt;{{#ifexist:Template:Language/{{lc:{{{2|en}}}}}&lt;!-- If the target language has a list
+       --&gt;|{{lc:{{{2|en}}}}}&lt;!-- use it 
+       --&gt;|en&lt;!-- else use English
+       --&gt;}}&lt;!--
+   --&gt;|{{{1}}}&lt;!--
+   --&gt;}}&lt;!--
+--&gt;|&lt;!-- Use alternate list if not found
+   --&gt;{{Language/&lt;!--
+       --&gt;{{#ifexist:Template:Language/{{lc:{{{2|en}}}+}}&lt;!-- If the target language has a list
+       --&gt;|{{lc:{{{2|en}}}+}}&lt;!-- use it 
+       --&gt;|en+&lt;!-- else use English
+       --&gt;}}&lt;!--
+   --&gt;|{{{1}}}&lt;!--
+   --&gt;}}&lt;!--
+ --&gt;}}&lt;!--
+
+--&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Language/en</title>
+    <ns>10</ns>
+    <id>20839670</id>
+      <sha1/>
+    <revision>
+      <id>329474688</id>
+      <timestamp>2009-12-03T16:07:04Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>add some new choices, per talk page request on {{Language}}</comment>
+      <text xml:space="preserve" bytes="5202">{{#switch:{{{1}}}
+|aa  = Afar
+|ab  = Abkhazian
+|ae  = Avestan
+|af  = Afrikaans
+|ain = Ainu
+|ak  = Akan
+|aln = Gheg Albanian
+|als
+|gsw = Alemannic
+|am  = Amharic
+|an  = Aragonese
+|ang = Old English
+|ar  = Arabic
+|arc = Aramaic
+|arn = Mapudungun
+|arz = Egyptian Spoken Arabic
+|as  = Assamese
+|ast = Asturian
+|av  = Avar
+|avk = Kotava
+|ay  = Aymara
+|az  = Azerbaijani
+|ba  = Bashkir
+|bar = Bavarian
+|bcc = Southern Balochi
+|bcl = Central Bicolano
+|be  = Belarusian
+|bg  = Bulgarian
+|bh  = Bihari
+|bi  = Bislama
+|bm  = Bambara
+|bn  = Bengali
+|bo  = Tibetan
+|bpy = Bishnupriya Manipuri
+|br  = Breton
+|bs  = Bosnian
+|bto = Iriga Bicolano
+|bug = Buginese
+|bxr = Buryat (Russia)
+|ca  = Catalan
+|cdo = Min Dong Chinese
+|ce  = Chechen
+|ceb = Cebuano
+|ch  = Chamorro
+|cho = Choctaw
+|chr = Cherokee
+|chy = Cheyenne
+|co  = Corsican
+|cop = Coptic
+|cr  = Cree
+|crh = Crimean Turkish
+|cs  = Czech
+|csb = Kashubian
+|cu  = Church Slavic
+|cv  = Chuvash
+|cy  = Welsh
+|da  = Danish
+|de  = German
+|diq = Dimli
+|dsb = Lower Sorbian
+|dv  = Divehi
+|dz  = Dzongkha
+|ee  = Ewe
+|el  = Greek
+|eml = Emilian-Romagnol
+|en  = English
+|eo  = Esperanto
+|es  = Spanish
+|et  = Estonian
+|eu  = Basque
+|ext = Extremaduran
+|fa  = Persian
+|ff  = Fulah
+|fi  = Finnish
+|fil = Filipino
+|fj  = Fijian
+|fo  = Faroese
+|fr  = French
+|frc = Cajun French
+|frp = Franco-Provençal
+|frr = North Frisian
+|fur = Friulian
+|fy  = Frisian
+|ga  = Irish
+|gaa = Ga
+|gag = Gagauz
+|gan = Gan Chineese
+|gd  = Scottish Gaelic
+|gl  = Galician
+|glk = Gilaki
+|gmh = Middle High German
+|gn  = Guaraní
+|got = Gothic
+|grc = Ancient Greek
+|gsw = Swiss German
+|gu  = Gujarati
+|gv  = Manx
+|ha  = Hausa
+|hak = Hakka Chinese
+|haw = Hawaiian
+|he  = Hebrew
+|hi  = Hindi
+|hif = Fiji Hindi
+|hil = Hiligaynon
+|ho  = Hiri Motu
+|hr  = Croatian
+|hsb = Upper Sorbian
+|ht  = Haitian
+|hu  = Hungarian
+|hy  = Armenian
+|hz  = Herero
+|ia  = Interlingua
+|id  = Indonesian
+|ie  = Interlingue
+|ig  = Igbo
+|ii  = Sichuan Yi
+|ik  = Inupiak
+|ilo = Iloko
+|inh = Ingush
+|io  = Ido
+|is  = Icelandic
+|it  = Italian
+|iu  = Inuktitut
+|ja  = Japanese
+|jbo = Lojban
+|jut = Jutish
+|jv  = Javanese
+|ka  = Georgian
+|kaa = Kara-Kalpak
+|kar = Karen
+|kab = Kabyle
+|kg  = Kongo
+|ki  = Kikuyu
+|kj  = Kwanyama
+|kk  = Kazakh
+|kl
+|kal = Greenlandic
+|km  = Khmer
+|kn  = Kannada
+|ko  = Korean
+|kr  = Kanuri
+|kri = Krio
+|krj = Kinaray-A
+|ks  = Kashmiri
+|ksh = Kölsch
+|ku  = Kurdish
+|kv  = Komi
+|kw  = Cornish
+|ky  = Kirghiz
+|la  = Latin
+|lad = Ladino
+|lb  = Luxembourgish
+|lbe = Lak
+|lez = Lezghian
+|lfn
+|art = Lingua Franca Nova
+|lg  = Ganda
+|li  = Limburgish
+|lij = Ligurian
+|lld
+|roa = Ladin
+|lmo = Lombard
+|ln  = Lingala
+|lo  = Lao
+|loz = Lozi
+|lt  = Lithuanian
+|lu  = Luba-Katanga
+|lv  = Latvian
+|lzz = Laz
+|mad = Madurese
+|mai = Maithili
+|mc  = Murcian
+|mdf = Moksha
+|mg  = Malagasy
+|mh  = Marshallese
+|mi  = Māori
+|mk  = Macedonian
+|ml  = Malayalam
+|mn  = Mongolian
+|mni = Manipuri
+|mo  = Moldavian
+|mr  = Marathi
+|ms  = Malay
+|mt  = Maltese
+|mus = Creek
+|mwl = Mirandese
+|my  = Burmese
+|myv = Erzya
+|mzn = Mazanderani
+|na  = Nauru
+|nah = Nahuatl languages
+|nap = Neapolitan
+|nb = Norwegian Bokmål
+|no  = Norwegian
+|nd  = North Ndebele
+|nds = Low Saxon
+|ne  = Nepali
+|new = Newar / Nepal Bhasa
+|ng  = Owambo
+|niu = Niuean
+|nl  = Dutch
+|nn  = Norwegian (Nynorsk)
+|non = Old Norse
+|nov = Novial
+|nr  = South Ndebele
+|nrm = Narom
+|nso = Northern Sotho
+|nv  = Navajo
+|ny  = Chichewa
+|oc  = Occitan
+|och = Classical Chinese
+|oj  = Ojibwa
+|om  = Oromo
+|or  = Oriya
+|os  = Ossetian
+|pa  = Panjabi
+|pag = Pangasinan
+|pam = Kapampangan
+|pap = Papiamento
+|pdc = Pennsylvania German
+|pdt = Plautdietsch
+|pfl = Pfaelzisch
+|pi  = Pali
+|pih = Pitcairn-Norfolk
+|pl  = Polish
+|plm = Palembang
+|pms = Piemontese
+|pnt = Pontic
+|pra = Prakrit
+|ps  = Pashto
+|pt  = Portuguese
+|qu  = Quechua
+|rif = Tarifit
+|rm  = Raeto-Romance
+|rmy = Vlax Romani
+|rn  = Kirundi
+|ro  = Romanian
+|roh = Romansh
+|ru  = Russian
+|ruq = Romanian
+|rw  = Kinyarwanda
+|sa  = Sanskrit
+|sah = Yakut
+|sc  = Sardinian
+|scn = Sicilian
+|sco = Scots
+|sd  = Sindhi
+|sdc = Sardinian
+|se  = Northern Sami
+|sei = Seri
+|sg  = Sango
+|sh  = Serbo-Croatian
+|shi = Tachelhit
+|si  = Sinhala
+|simple = Simple English
+|sk  = Slovak
+|sl  = Slovene
+|sm  = Samoan
+|sma = Southern Sami
+|sn  = Shona
+|so  = Somali
+|sq  = Albanian
+|sr  = Serbian
+|srn = Sranan Tongo
+|ss  = Swati
+|st  = Sotho
+|stq = Saterland Frisian
+|su  = Sundanese
+|sv  = Swedish
+|sw  = Swahili
+|szl = Silesian
+|ta  = Tamil
+|te  = Telugu
+|tet = Tetum
+|tg  = Tajik
+|th  = Thai
+|ti  = Tigrinya
+|tk  = Turkmen
+|tl  = Tagalog
+|tlh = Klingon
+|tn  = Tswana
+|to  = Tonga
+|tpi = Tok Pisin
+|tr  = Turkish
+|ts  = Tsonga
+|tt  = Tatar
+|tum = Tumbuka
+|tw  = Twi
+|ty  = Tahitian
+|tyv = Tyvan
+|tzm = Central Morocco Tamazight
+|udm = Udmurt
+|ug  = Uighur
+|uk  = Ukrainian
+|ur  = Urdu
+|uz  = Uzbek
+|ve  = Venda
+|vec = Venetian
+|vi  = Vietnamese
+|vls = Vlaams
+|vo  = Volapük
+|vrm = Värmlandic
+|wa  = Walloon
+|war = Waray
+|wo  = Wolof
+|wuu = Wu Chinese
+|xal = Kalmyk
+|xh  = Xhosa
+|xmf = Mingrelian
+|ydd = Eastern Yiddish
+|yi  = Yiddish
+|yo  = Yoruba
+|yue = Cantonese
+|za  = Zhuang
+|zea = Zeeuws
+|zh
+|cmn = Chinese
+|zu  = Zulu
+||#default=&lt;strong class=&quot;error&quot;&gt;{{#if:{{{1|}}}|Unrecognised|Unspecified}} language code&lt;/strong&gt;
+}}</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Main Page banner</title>
+    <ns>10</ns>
+    <id>1397599</id>
+      <sha1/>
+    <restrictions>move=sysop:edit=sysop</restrictions>
+    <revision>
+      <id>408112808</id>
+      <timestamp>2011-01-16T00:01:49Z</timestamp>
+      <contributor>
+        <username>David Levy</username>
+        <id>197557</id>
+      </contributor>
+      <comment>blanked</comment>
+      <text xml:space="preserve" bytes="406">&lt;!-- 
+
+Please note - this template is shown on the Main Page, and any changes or screw-ups you make will appear there immediately. Make changes very carefully, and always use the Show Preview button to make sure your changes turn out properly. 
+
+To make this template appear on the Main Page, add *plaintext* (with wikimarkup etc) after this comment.  Formatting is added in the Main Page code itself.
+
+--&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Main Page interwikis</title>
+    <ns>10</ns>
+    <id>7449637</id>
+      <sha1/>
+    <restrictions>edit=sysop:move=sysop</restrictions>
+    <revision>
+      <id>460905241</id>
+      <timestamp>2011-11-16T06:05:09Z</timestamp>
+      <contributor>
+        <username>David Levy</username>
+        <id>197557</id>
+      </contributor>
+      <comment>+ [[sh:]]</comment>
+      <text xml:space="preserve" bytes="408">&lt;includeonly&gt;[[simple:]] [[ar:]] [[id:]] [[ms:]] [[bg:]] [[ca:]] [[cs:]] [[da:]] [[de:]] [[et:]] [[el:]] [[es:]] [[eo:]] [[eu:]] [[fa:]] [[fr:]] [[gl:]] [[ko:]] [[he:]] [[hr:]] [[it:]] [[lt:]] [[hu:]] [[nl:]] [[ja:]] [[no:]] [[nn:]] [[pl:]] [[pt:]] [[ro:]] [[ru:]] [[sk:]] [[sl:]] [[sr:]] [[sh:]] [[fi:]] [[sv:]] [[th:]] [[vi:]] [[tr:]] [[uk:]] [[zh:]]&lt;/includeonly&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Max/2</title>
+    <ns>10</ns>
+    <id>13505276</id>
+      <sha1/>
+    <revision>
+      <id>179606829</id>
+      <timestamp>2007-12-22T16:30:28Z</timestamp>
+      <contributor>
+        <username>Zzuuzz</username>
+        <id>365454</id>
+      </contributor>
+      <minor/>
+      <comment>Protected Template:Max/2: [[Wikipedia:High-risk templates|High risk template]] [edit=sysop:move=sysop]</comment>
+      <text xml:space="preserve" bytes="138">&lt;includeonly&gt;{{#ifexpr:{{{1}}}&lt;{{{2}}}|{{{2}}}|{{{1}}}}}&lt;/includeonly&gt;&lt;noinclude&gt;
+{{pp-template|small=yes}}2-parameter version&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Nowrap</title>
+    <ns>10</ns>
+    <id>1627975</id>
+      <sha1/>
+    <restrictions>edit=sysop:move=sysop</restrictions>
+    <revision>
+      <id>462345338</id>
+      <timestamp>2011-11-25T01:55:12Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>use nowrap class</comment>
+      <text xml:space="preserve" bytes="120">&lt;span class=&quot;nowrap&quot;&gt;{{{1}}}&lt;/span&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;!--interwikis/categories go inside doc--&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Order of magnitude</title>
+    <ns>10</ns>
+    <id>11656899</id>
+      <sha1/>
+    <revision>
+      <id>442798436</id>
+      <timestamp>2011-08-03T05:54:13Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <comment>includeonly &amp; code arrangement; no real change</comment>
+      <text xml:space="preserve" bytes="366">&lt;includeonly&gt;{{#ifexpr:{{{1|0}}}=0&lt;!-- 
+                   --&gt;|0&lt;!-- 
+                   --&gt;|{{order of magnitude/x&lt;!--
+                               --&gt;|{{{1}}}&lt;!--
+                               --&gt;|{{#expr:floor(ln(abs({{{1}}}))/ln10)}}&lt;!--
+                               --&gt;}}&lt;!--
+                   --&gt;}}&lt;/includeonly&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Order of magnitude/x</title>
+    <ns>10</ns>
+    <id>18282813</id>
+      <sha1/>
+    <revision>
+      <id>442808340</id>
+      <timestamp>2011-08-03T07:40:56Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <text xml:space="preserve" bytes="182">&lt;includeonly&gt;{{#expr:{{{2|0}}}+( ( {{{1|0}}} )/10^{{{2|0}}}&gt;=10)}}&lt;/includeonly&gt;&lt;noinclude&gt;The purpose of this subtemplate is to correct a rounding error caused by #expr.&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Other areas of Wikipedia</title>
+    <ns>10</ns>
+    <id>4440742</id>
+      <sha1/>
+    <revision>
+      <id>431842993</id>
+      <timestamp>2011-05-31T15:46:39Z</timestamp>
+      <contributor>
+        <username>Feezo</username>
+        <id>155651</id>
+      </contributor>
+      <comment>Alphabetizing per request</comment>
+      <text xml:space="preserve" bytes="833">*'''[[Wikipedia:Community portal|Community portal]]''' – Bulletin board, projects, resources and activities covering a wide range of Wikipedia areas.
+*'''[[Wikipedia:Help desk|Help desk]]''' – Ask questions about using Wikipedia.
+*'''[[Wikipedia:Local Embassy|Local embassy]]''' – For Wikipedia-related communication in languages other than English.
+*'''[[Wikipedia:Reference desk|Reference desk]]''' – Serving as virtual librarians, Wikipedia volunteers tackle your questions on a wide range of subjects.
+*'''[[Wikipedia:News|Site news]]''' – Announcements, updates, articles and press releases on Wikipedia and the Wikimedia Foundation.
+*'''[[Wikipedia:Village pump|Village pump]]''' – For discussions about Wikipedia itself, including areas for technical issues and policies.
+&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:POTD protected/2012-03-21</title>
+    <ns>10</ns>
+    <id>35157303</id>
+      <sha1/>
+    <revision>
+      <id>483036151</id>
+      <timestamp>2012-03-21T04:06:45Z</timestamp>
+      <contributor>
+        <username>Howcheng</username>
+        <id>314721</id>
+      </contributor>
+      <comment>copy changes from other POTD version</comment>
+      <text xml:space="preserve" bytes="4564">
+{| style=&quot;margin:0 3px 3px; width:100%; text-align:{{#ifexpr:350 &gt;= 400|center|left}}; background-color:transparent; border-collapse: collapse; {{#ifexpr:350 &gt;= 400|padding:0.9em|}}&quot;
+|{{#ifexpr:350 &lt; 400|style=&quot;padding:0 0.9em 0 0;&quot;|}}| {{#if: 
+  |{{wide image-noborder|Yttrium sublimed dendritic and 1cm3 cube.jpg|{{{size}}}px|4=550px|alt=Yttrium }}
+  |{{#if: 
+    |{{tall image|Yttrium sublimed dendritic and 1cm3 cube.jpg|300|alt=Yttrium }}
+    |[[File:Yttrium sublimed dendritic and 1cm3 cube.jpg|350x250px {{ #if:| {{!}} thumbtime={{{thumbtime}}} }}|Yttrium {{#if:|{{!}}link=File:{{{imagelink}}}|}}]]
+    }}
+  }}
+{{#ifexpr:350 &gt;= 400|
+{{!}}-
+{{!}}style=&quot;padding:0 0.9em 0.9em 0.9em;&quot;{{!}}|{{!}}style=&quot;padding:0 6px 0 0&quot;{{!}}
+}}
+{{#if:|&lt;p style=&quot;font-size:150%; text-align:center;&quot; class=&quot;plainlinks&quot;&gt;[{{filepath:Yttrium sublimed dendritic and 1cm3 cube.jpg}} View the animation]&lt;/p&gt;}}
+Three samples of '''[[yttrium]]''', a silvery [[rare earth element|rare earth]] metal. The left and the middle sample are [[Sublimation (phase transition)|sublimed]] [[Dendrite (crystal)|dendritic]] and the cube on the right was created by [[Gas tungsten arc welding|argon arc remelting]]. Yttrium is named after the town of [[Ytterby]], Sweden, where it was first discovered, and is used industrially in making [[phosphor]]s such as those in [[cathode ray tube]]s and [[Light-emitting diode|LED]]s.
+
+{{#if:Photo: [[User:Alchemist-hp|Alchemist-hp]]|&lt;small&gt;Photo: [[User:Alchemist-hp|Alchemist-hp]]&lt;/small&gt;|}}&lt;div style=&quot;text-align:right;&quot;&gt;
+Recently featured: [[Template:POTD/2012-03-20|{{POTD texttitle
+|image=Lime Butterfly Papilio demoleus.jpg
+|size=550
+|colsize=400
+|title=Lime Butterfly Papilio demoleus, [[Bangalore]], [[India]]
+|texttitle=Lime Butterfly Papilio demoleus, Bangalore, India
+|caption='''''[[Papilio demoleus]]''''', the Common Lime Butterfly, is a common and widespread [[Swallowtail butterfly|Swallowtail]] [[butterfly]]. It gets its name from its host plants which are usually citrus species such as the [[Lime (fruit)|cultivated lime]]. Unlike most swallowtail butterflies it does not have a prominent tail. The butterfly has also been referred to as the Citrus swallowtail, a name it shares with a morphologically similar species, ''[[Papilio demodocus]]'' which flies in [[Africa]]. The butterfly is a [[Pest (organism)|pest]] and [[invasive species]] from the [[Old World]] which has spread to the [[Caribbean]] and [[Central America]].
+|credit=Photo: [[User:Muhammad Mahdi Karim|Muhammad Mahdi Karim]]
+}}
+]] &amp;ndash; [[Template:POTD/2012-03-19|{{POTD texttitle
+|image=Sydney Harbour Bridge from Circular Quay.jpg
+|size=550
+|colsize=400
+|title=[[Sydney Harbour Bridge]]
+|texttitle=Sydney Harbour Bridge
+|caption=The '''[[Sydney Harbour Bridge]]''' is a steel [[through arch bridge]] across [[Port Jackson|Sydney Harbour]] that carries rail, vehicular, bicycle and pedestrian traffic between the [[Sydney central business district|central business district]] and the [[North Shore (Sydney)|North Shore]]. There had been plans to build a bridge as early as 1815, but nothing was put into action until after World War&amp;nbsp;I. The bridge officially opened on {{nowrap|19 March}} 1932.
+|credit=Photo: [[User:JJ Harrison|JJ Harrison]]
+}}]] &amp;ndash; [[Template:POTD/2012-03-18|{{POTD texttitle
+|image=Freiburg Schlossbergturm Panorama 2010.jpg
+|size=1800
+|wide=y
+|title=[[Freiburg im Breisgau]]
+|texttitle=Freiburg im Breisgau, Germany
+|caption=A 360° panoramic view of '''[[Freiburg im Breisgau]]''', a city in [[Baden-Württemberg]], Germany. In the extreme south-west of the country, it straddles the [[Dreisam]] river, at the foot of the [[Schlossberg (Freiburg)|Schlossberg]]. Historically, the city has acted as the hub of the [[Breisgau]] region on the western edge of the [[Black Forest]] in the [[Upper Rhine Plain]]. One of the famous old German university towns, and an [[Roman Catholic Archdiocese of Freiburg|archiepiscopal]] seat, Freiburg was incorporated in the early 12th century and developed into a major commercial, intellectual, and ecclesiastical centre of the upper Rhine region.
+|credit=Photo: [[Commons:User:AHornung|Armin Hornung]]
+}}]]&lt;br/&gt;
+&lt;div class=&quot;noprint&quot;&gt;'''[[Wikipedia:Picture of the day/{{CURRENTMONTHNAME}} {{CURRENTYEAR}}|Archive]]''' &amp;ndash; '''[[Wikipedia:Featured pictures|More featured pictures...]]'''&lt;/div&gt;
+&lt;/div&gt;
+|}&lt;noinclude&gt;[[Category:Wikipedia Picture of the day {{#time:F Y|{{SUBPAGENAME}}}}]]
+==See also==
+*[[Template:POTD{{#ifeq:{{BASEPAGENAME}}|POTD protected||_protected}}/{{SUBPAGENAME}}]]&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:POTD texttitle</title>
+    <ns>10</ns>
+    <id>10636196</id>
+      <sha1/>
+    <revision>
+      <id>258523531</id>
+      <timestamp>2008-12-17T06:26:41Z</timestamp>
+      <contributor>
+        <username>MZMcBride</username>
+        <id>212624</id>
+      </contributor>
+      <comment>made change per talk request</comment>
+      <text xml:space="preserve" bytes="107">{{{texttitle}}}&lt;noinclude&gt;
+{{pp-template|small=yes}}
+[[Category:Wikipedia Picture of the day]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Precision/0</title>
+    <ns>10</ns>
+    <id>13551870</id>
+      <sha1/>
+    <revision>
+      <id>307883381</id>
+      <timestamp>2009-08-14T05:33:40Z</timestamp>
+      <contributor>
+        <username>Plastikspork</username>
+        <id>5075409</id>
+      </contributor>
+      <minor/>
+      <comment>documentation</comment>
+      <text xml:space="preserve" bytes="177">&lt;includeonly&gt;{{precision/0{{#expr:{{{1}}}={{{1}}}round-6}}|1{{{1}}}}}&lt;/includeonly&gt;&lt;noinclude&gt;
+{{pp-template}}Calls either {{tl|precision/00}} or {{tl|precision/01}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Precision/00</title>
+    <ns>10</ns>
+    <id>13548946</id>
+      <sha1/>
+    <revision>
+      <id>307883163</id>
+      <timestamp>2009-08-14T05:31:57Z</timestamp>
+      <contributor>
+        <username>Plastikspork</username>
+        <id>5075409</id>
+      </contributor>
+      <minor/>
+      <comment>documentation</comment>
+      <text xml:space="preserve" bytes="219">&lt;includeonly&gt;-({{{1}}}={{{1}}}round-5)-({{{1}}}={{{1}}}round-4)-({{{1}}}={{{1}}}round-3)-({{{1}}}={{{1}}}round-2)-({{{1}}}={{{1}}}round-1)&lt;/includeonly&gt;&lt;noinclude&gt;
+{{pp-template}}Called by {{lt|precision/0}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Precision/2010</title>
+    <ns>10</ns>
+    <id>23975371</id>
+      <sha1/>
+    <revision>
+      <id>436057157</id>
+      <timestamp>2011-06-24T23:09:12Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <minor/>
+      <comment>moved [[Template:Precision/1b]] to [[Template:Precision/2010]]: descriptive name for the old thing</comment>
+      <text xml:space="preserve" bytes="146">&lt;includeonly&gt;{{precision/a|{{{1}}}|{{#titleparts:{{{1}}}|1|2}}}}&lt;/includeonly&gt;&lt;noinclude&gt;{{pp-template}}Called by {{lt|convert/round}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Precision/a</title>
+    <ns>10</ns>
+    <id>23920475</id>
+      <sha1/>
+    <revision>
+      <id>388740319</id>
+      <timestamp>2010-10-04T19:11:35Z</timestamp>
+      <contributor>
+        <username>WOSlinker</username>
+        <id>3138265</id>
+      </contributor>
+      <comment>remove {{pp-template}} since included in {{documentation}}</comment>
+      <text xml:space="preserve" bytes="170">&lt;includeonly&gt;{{#if:{{{2|}}}|{{#expr:(ln{{{2}}})/ln10}}|{{#expr:{{precision/{{#expr:3*{{{1}}}&gt;{{{1}}}0}}|{{{1}}}}}}}}}&lt;/includeonly&gt;&lt;noinclude&gt;{{template doc}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Rnd</title>
+    <ns>10</ns>
+    <id>13373859</id>
+      <sha1/>
+    <revision>
+      <id>478031613</id>
+      <timestamp>2012-02-21T07:14:34Z</timestamp>
+      <contributor>
+        <username>Jimp</username>
+        <id>275655</id>
+      </contributor>
+      <text xml:space="preserve" bytes="2326">&lt;includeonly&gt;{{#iferror:{{#expr:{{{2}}}}}|{{rndnear|{{{1}}}|1E{{#expr:{{order of magnitude|{{{1}}}}}-1}}}}|{{formatnum:
+   {{#ifexpr:({{{1|0}}})round({{{2|0}}})&gt;=0.0001
+     |{{#ifexpr:({{{1}}})round({{{2}}})&lt;1E9
+        |{{#ifexpr:&lt;!--
+--&gt;{{#expr:(({{{1}}})round({{{2}}})/1E5round0)E5}}={{#expr:({{{1}}})round({{{2}}})}}
+           |{{#ifexpr:{{{2}}}&lt;=0
+              |{{#expr:({{{1}}})round({{{2}}})E-5}}00000
+              |{{#expr:({{{1}}})round({{{2}}})E-5}}0000{{rnd/-|0|{{{2}}}}}
+            }}
+           |{{#ifexpr:{{{2}}}&lt;=0
+              |{{#expr:({{{1}}})round({{{2}}})}}
+              |{{rnd/-|{{#expr:({{{1}}})round({{{2}}})}}|{{{2}}}}}
+            }}
+         }}
+        |{{rnd/e+
+           |{{#expr:({{{1}}})round({{{2}}})}}
+           |{{{2}}}
+           |{{Order of magnitude|{{#expr:({{{1}}})round({{{2}}})}}}}}}
+      }}
+     |{{#ifexpr:({{{1|0}}})round({{{2|0}}})&lt;=-0.0001
+        |{{#ifexpr:({{{1}}})round({{{2}}})&gt;-1E9
+           |{{#ifexpr:&lt;!--
+--&gt;{{#expr:(({{{1}}})round({{{2}}})/1E5round0)E5}}={{#expr:({{{1}}})round({{{2}}})}}
+              |{{#ifexpr:{{{2}}}&lt;=0
+                 |−{{#expr:-({{{1}}})round({{{2}}})E-5}}00000
+                 |−{{#expr:-({{{1}}})round({{{2}}})E-5}}0000{{rnd/-|0|{{{2}}}}}
+               }}
+              |{{#ifexpr:{{{2}}}&lt;=0
+                 |−{{#expr:-({{{1}}})round({{{2}}})}}
+                 |−{{rnd/-|-{{#expr:({{{1}}})round({{{2}}})}}|{{{2}}}}}
+               }}
+            }}
+           |−{{rnd/e+
+              |-{{#expr:({{{1}}})round({{{2}}})}}
+              |{{{2}}}
+              |{{Order of magnitude|{{#expr:({{{1}}})round({{{2}}})}}}}}}
+         }}
+        |{{#ifexpr:({{{1|0}}})round({{{2|0}}})=0
+           |{{#ifexpr:{{{2|0}}}&lt;=0
+              |0
+              |{{rnd/-|0|{{{2}}}}}
+            }}
+           |{{#ifexpr:({{{1}}})round({{{2}}})&gt;0
+              |{{rnd/e−
+                 |{{#expr:({{{1}}})round({{{2}}})}}
+                 |{{{2}}}
+                 |{{Order of magnitude|({{{1}}})round({{{2}}})}}
+               }}
+              |−{{rnd/e−
+                 |-{{#expr:({{{1}}})round({{{2}}})}}
+                 |{{{2}}}
+                 |{{Order of magnitude|{{#expr:({{{1}}})round({{{2}}})}}}}
+               }}
+            }}
+         }}
+      }}
+   }}
+}}}}&lt;/includeonly&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Sec link/relative url</title>
+    <ns>10</ns>
+    <id>33269434</id>
+      <sha1/>
+    <revision>
+      <id>467220040</id>
+      <timestamp>2011-12-22T18:28:47Z</timestamp>
+      <contributor>
+        <username>WOSlinker</username>
+        <id>3138265</id>
+      </contributor>
+      <minor/>
+      <comment>Protected Template:Sec link/relative url: match parent template ([edit=autoconfirmed] (indefinite) [move=sysop] (indefinite))</comment>
+      <text xml:space="preserve" bytes="1476">//{{#switch: {{lc: {{{project|}}} }}
+| wikipedia | w = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikipedia
+| wiktionary | wikt = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wiktionary
+| wikinews | n = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikinews
+| wikibooks | b = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikibooks
+| wikiquote | q = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikiquote
+| wikisource | s = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikisource
+| oldwikisource = wikisource
+| wikispecies | species = species.wikimedia
+| wikiversity | v = {{#if:{{{lang|}}}|{{{lang}}}|{{CONTENTLANG}}}}.wikiversity
+| wikimedia | foundation | wmf = wikimediafoundation
+| commons = commons.wikimedia
+| meta | metawikipedia | m = meta.wikimedia
+| strategy = strategy.wikimedia
+| incubator = incubator.wikimedia
+| mw = www.mediawiki
+| nost = nostalgia.wikimedia
+| testwiki = test.wikipedia
+| #default = 
+
+&lt;!-- Other Wikipedia language fed, or no project fed.
+     (If copying this template to a non-Wikipedia project,
+     then update the below code line.) --&gt;
+| #default = {{#if:{{{project|}}}|{{{project}}}|{{CONTENTLANG}}}}.wikipedia
+
+}}.org/wiki/{{#if: {{{anchor|}}}
+| {{Case preserving encode|{{{pagename|}}} }}#{{anchorencode:{{{anchor}}} }}
+| {{Case preserving encode|{{{pagename|}}} }}{{#if: {{{query|}}}
+  | ?{{{query|}}}
+  }}
+}}&lt;noinclude&gt;
+
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Sec link/text</title>
+    <ns>10</ns>
+    <id>25549138</id>
+      <sha1/>
+    <revision>
+      <id>388748413</id>
+      <timestamp>2010-10-04T19:51:53Z</timestamp>
+      <contributor>
+        <username>WOSlinker</username>
+        <id>3138265</id>
+      </contributor>
+      <comment>remove {{pp-template}} since included in {{documentation}}</comment>
+      <text xml:space="preserve" bytes="523">{{#if: {{{text|}}}
+| {{{text}}}
+| {{#if: {{{project|}}} 
+  | {{{project}}}:{{#if: {{{lang|}}}
+    | {{{lang}}}:
+    }}{{{pagename|}}}
+  | &lt;!--No project, so a local link--&gt;
+    {{#if: {{{pagename|}}}
+    | {{{pagename}}}
+    | {{MediaWiki:Mainpage}}   &lt;!--Main page name at the local project--&gt;
+    }}
+  }}{{
+  #if: {{{query|}}}
+  | ?{{{query|}}}
+  | {{#if: {{{anchor|}}}
+    | &amp;#35;{{{anchor}}}
+    }}
+  }}
+}}&lt;noinclude&gt;
+
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Sec link auto</title>
+    <ns>10</ns>
+    <id>25217705</id>
+      <sha1/>
+    <revision>
+      <id>453368217</id>
+      <timestamp>2011-10-01T13:28:07Z</timestamp>
+      <contributor>
+        <username>TheDJ</username>
+        <id>244887</id>
+      </contributor>
+      <comment>damn linebreak.</comment>
+      <text xml:space="preserve" bytes="674">{{#switch: {{lc: {{{padlock|}}} }}
+  | yes    &lt;!--Supress CSS icon, to not get double icon--&gt;
+  | no = &lt;span class=&quot;plainlinks&quot;&gt;
+  }}[{{sec link/relative url
+  | project = {{{1|}}}
+  | pagename = {{{2|}}}
+  | lang = {{{lang|}}}
+  | query = {{{query|}}}
+  | anchor = {{{anchor|}}}
+  }} {{sec link/text
+  | project = {{{1|}}}
+  | pagename = {{{2|}}}
+  | text = {{{3|}}}
+  | lang = {{{lang|}}}
+  | query = {{{query|}}}
+  | anchor = {{{anchor|}}}
+  }}]{{#switch: {{lc: {{{padlock|}}} }}
+  | no = &lt;/span&gt;
+  | yes = &lt;/span&gt;[[File:Lock icon blue.gif|16x13px|link=]]
+}}&lt;noinclude&gt;
+
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:SelAnnivFooter</title>
+    <ns>10</ns>
+    <id>1980457</id>
+      <sha1/>
+    <restrictions>move=sysop:edit=sysop</restrictions>
+    <revision>
+      <id>454389959</id>
+      <timestamp>2011-10-07T13:56:46Z</timestamp>
+      <contributor>
+        <username>Foxj</username>
+        <id>5019622</id>
+      </contributor>
+      <comment>Chuck in some {{nowrap|}}s. Feel free to take some (most) out.</comment>
+      <text xml:space="preserve" bytes="844">&lt;/ul&gt;
+More anniversaries: {{nowrap|[[{{#time: F j |{{{Day|1}}} {{{Month|January}}} {{CURRENTYEAR}} -1 days}}]] &amp;ndash;}} {{nowrap|'''[[{{#time: F j |{{{Day|1}}} {{{Month|January}}} {{CURRENTYEAR}} }}]]''' &amp;ndash;}} {{nowrap|[[{{#time: F j |{{{Day|1}}} {{{Month|January}}} {{CURRENTYEAR}} +1 days}}]]}}
+
+&lt;div style=&quot;text-align: right;&quot; class=&quot;noprint&quot;&gt;{{nowrap|'''[[Wikipedia:Selected anniversaries/{{{Month}}}|Archive]]''' &amp;ndash;}} {{nowrap|'''[[mail:daily-article-l|By email]]''' &amp;ndash;}} {{nowrap|'''[[List of historical anniversaries]]'''}}&lt;/div&gt;
+
+&lt;div style=&quot;text-align: right;&quot;&gt;&lt;small&gt;It is now {{nowrap|{{CURRENTMONTHNAME}} {{CURRENTDAY}}, {{CURRENTYEAR}}}} ([[Coordinated Universal Time|UTC]]) &amp;ndash; &lt;span class=&quot;plainlinks&quot; id=&quot;purgelink&quot;&gt;{{nowrap|[{{fullurl:{{FULLPAGENAME}}|action=purge}} Refresh this page]}}&lt;/span&gt;&lt;/small&gt;&lt;/div&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Start date</title>
+    <ns>10</ns>
+    <id>12549672</id>
+      <sha1/>
+    <revision>
+      <id>354551767</id>
+      <timestamp>2010-04-07T16:11:31Z</timestamp>
+      <contributor>
+        <username>Plastikspork</username>
+        <id>5075409</id>
+      </contributor>
+      <comment>per edit request</comment>
+      <text xml:space="preserve" bytes="1041">&lt;includeonly&gt;{{#if: {{{4|}}}
+  |{{#if: {{{5|}}}
+     |{{padleft:{{{4}}}|2|0}}:{{padleft:{{{5}}}|2|0}}{{#if: {{{6|}}}
+                                                   |&amp;#58;{{padleft:{{{6}}}|2|0}} }},&amp;#32;}} }}&lt;!--ABOVE FOR TIME; BELOW FOR DATE
+--&gt;{{#if: {{{1|}}}
+     |{{#if: {{{2|}}}
+        |{{#if: {{{3|}}}
+           |{{#if: {{{df|}}}|{{#expr:{{{3}}}}} {{MONTHNAME|{{{2}}}}}|{{MONTHNAME|{{{2}}}}} {{#expr:{{{3}}}}},}} {{{1}}}|{{MONTHNAME|{{{2}}}}} {{{1}}}}}|{{{1}}}}}}}{{#if: {{{7|}}}
+              |&amp;#32;({{#ifeq: {{{7}}}|Z|UTC|{{{7}}}}})}}&lt;!-- BELOW FOR hCalendar
+--&gt;&lt;span style=&quot;display:none&quot;&gt;&amp;#160;(&lt;span class=&quot;bday dtstart published updated&quot;&gt;{{#if: {{{1|}}}
+  | {{{1}}}{{#if: {{{2|}}}
+     | -{{padleft:{{{2}}}|2|0}}{{#if: {{{3|}}}
+        | -{{padleft:{{{3}}}|2|0}} }} }}&lt;!--
+--&gt;{{#if: {{{4|}}}
+     | T{{padleft:{{{4}}}|2|0}}{{#if: {{{5|}}}
+        | &amp;#58;{{padleft:{{{5}}}|2|0}}{{#if: {{{6|}}}
+           | &amp;#58;{{padleft:{{{6}}}|2|0}} }} }} }} }}{{{7|}}}&lt;/span&gt;)&lt;/span&gt;&lt;/includeonly&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:TFAfooter</title>
+    <ns>10</ns>
+    <id>1207221</id>
+      <sha1/>
+    <restrictions>move=sysop:edit=sysop</restrictions>
+    <revision>
+      <id>408454078</id>
+      <timestamp>2011-01-17T20:26:23Z</timestamp>
+      <contributor>
+        <username>WOSlinker</username>
+        <id>3138265</id>
+      </contributor>
+      <comment>add cat</comment>
+      <text xml:space="preserve" bytes="315">&lt;div style=&quot;float:right&quot; class=&quot;noprint&quot;&gt;'''[[Wikipedia:Today's featured article/{{{Month}}} {{{Year}}}|Archive]]''' &amp;ndash; '''[[mail:daily-article-l|By email]]''' &amp;ndash;  '''[[Wikipedia:Featured articles|More featured articles...]]'''&lt;/div&gt;&lt;noinclude&gt;
+[[Category:Wikipedia administration templates]]
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Wikipedia's sister projects</title>
+    <ns>10</ns>
+    <id>488016</id>
+      <sha1/>
+    <revision>
+      <id>465783667</id>
+      <timestamp>2011-12-14T08:43:22Z</timestamp>
+      <contributor>
+        <username>Bencherlite</username>
+        <id>1843661</id>
+      </contributor>
+      <comment>per talk:Main Page, replacing external link with wikilink to [[wmf:Our projects]].  Please revert if there's some important reason to have an external link instead.</comment>
+      <text xml:space="preserve" bytes="2385">Wikipedia is hosted by the [[Wikimedia Foundation]], a non-profit organization that also hosts a range of other [[wmf:Our projects|projects]]:
+  &lt;table class=&quot;layout plainlinks&quot; style=&quot;width:100%; margin:auto; text-align:left; background:transparent;&quot;&gt;
+  &lt;tr&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Commons-logo-31px.png|31px|link=commons:|Commons]] &lt;/td&gt;
+  &lt;td style=&quot;width:33%; padding:4px;&quot;&gt; '''[//commons.wikimedia.org/ Commons]''' &lt;br&gt; Free media repository &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikiquote-logo-51px.png|51px|link=q:|Wikiquote]] &lt;/td&gt;
+  &lt;td style=&quot;width:33%; padding:4px;&quot;&gt; '''[//en.wikiquote.org/ Wikiquote]''' &lt;br&gt; Collection of quotations &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikiversity-logo-41px.png|41px|link=v:|Wikiversity]] &lt;/td&gt;
+  &lt;td style=&quot;width:33%; padding:4px;&quot;&gt; '''[//en.wikiversity.org/ Wikiversity]''' &lt;br&gt; Free learning materials and activities &lt;/td&gt;
+  &lt;/tr&gt;&lt;tr&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikibooks-logo-35px.png|35px|link=b:|Wikibooks]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//en.wikibooks.org/ Wikibooks]''' &lt;br&gt; Free textbooks and manuals &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikisource-logo-35px.png|35px|link=s:|Wikisource]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//en.wikisource.org/ Wikisource]''' &lt;br&gt; Free-content library &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wiktionary-logo-51px.png|51px|link=wikt:|Wiktionary]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//en.wiktionary.org/ Wiktionary]''' &lt;br&gt; Dictionary and thesaurus &lt;/td&gt;
+  &lt;/tr&gt;&lt;tr&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikinews-logo-51px.png|51px|link=n:|Wikinews]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//en.wikinews.org/ Wikinews]''' &lt;br&gt; Free-content news &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Wikispecies-logo-35px.png|35px|link=wikispecies:|Wikispecies]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//species.wikimedia.org/ Wikispecies]''' &lt;br&gt; Directory of species &lt;/td&gt;
+  &lt;td style=&quot;text-align:center; padding:4px;&quot;&gt; [[File:Meta-logo-35px.png|35px|link=m:|Meta-Wiki]] &lt;/td&gt;
+  &lt;td style=&quot;padding:4px;&quot;&gt; '''[//meta.wikimedia.org/ Meta-Wiki]''' &lt;br&gt; Wikimedia project coordination &lt;/td&gt;
+  &lt;/tr&gt;&lt;/table&gt;&lt;noinclude&gt;
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Wikipedia languages</title>
+    <ns>10</ns>
+    <id>488014</id>
+      <sha1/>
+    <restrictions>move=sysop:edit=sysop</restrictions>
+    <revision>
+      <id>461673999</id>
+      <timestamp>2011-11-20T22:54:00Z</timestamp>
+      <contributor>
+        <username>David Levy</username>
+        <id>197557</id>
+      </contributor>
+      <comment>moved up Serbian Wikipedia to the &quot;more than 150,000 articles&quot; tier</comment>
+      <text xml:space="preserve" bytes="2506">&lt;!-- Note: This section will be regularly modified to keep it approximately the same size as Template:Wikipedia's sister projects. --&gt;
+&lt;div id=&quot;lang&quot; class=&quot;nowraplinks nourlexpansion plainlinks&quot;&gt;
+{{#ifeq: {{FULLPAGENAME}} | Special:Statistics
+| 
+| This Wikipedia is written in [[English language|English]]. Started in {{Start date|2001}}, it currently contains [[Special:Statistics|{{NUMBEROFARTICLES}}]] articles.&amp;#32;
+}}Many other Wikipedias are available; some of the largest are listed below.
+&lt;ul&gt;
+
+&lt;li id=&quot;lang-3&quot;&gt;More than 700,000 articles: {{Wikipedia languages/core|de}}{{·}} {{Wikipedia languages/core|es}}{{·}} {{Wikipedia languages/core|fr}}{{·}} {{Wikipedia languages/core|it}}{{·}} {{Wikipedia languages/core|nl}}{{·}} {{Wikipedia languages/core|ja}}{{·}} {{Wikipedia languages/core|pl}}{{·}} {{Wikipedia languages/core|pt}}{{·}} {{Wikipedia languages/core|ru}}&lt;/li&gt;
+
+&lt;li id=&quot;lang-2&quot;&gt;More than 150,000 articles: {{Wikipedia languages/core|ar}}{{·}} {{Wikipedia languages/core|id}}{{·}} {{Wikipedia languages/core|ca}}{{·}} {{Wikipedia languages/core|cs}}{{·}} {{Wikipedia languages/core|da}}{{·}} {{Wikipedia languages/core|eo}}{{·}} {{Wikipedia languages/core|fa}}{{·}} {{Wikipedia languages/core|ko}}{{·}} {{Wikipedia languages/core|hu}}{{·}} {{Wikipedia languages/core|no}}{{·}} {{Wikipedia languages/core|ro}}{{·}} {{Wikipedia languages/core|sr}}{{·}} {{Wikipedia languages/core|fi}}{{·}} {{Wikipedia languages/core|sv}}{{·}} {{Wikipedia languages/core|vi}}{{·}} {{Wikipedia languages/core|tr}}{{·}} {{Wikipedia languages/core|uk}}{{·}} {{Wikipedia languages/core|zh}}&lt;/li&gt;
+
+&lt;li id=&quot;lang-1&quot;&gt;More than 50,000 articles: {{Wikipedia languages/core|ms}}{{·}} {{Wikipedia languages/core|bg}}{{·}} {{Wikipedia languages/core|et}}{{·}} {{Wikipedia languages/core|el}}{{·}} {{Wikipedia languages/core|simple}}{{·}} {{Wikipedia languages/core|eu}}{{·}} {{Wikipedia languages/core|gl}}{{·}} {{Wikipedia languages/core|he}}{{·}} {{Wikipedia languages/core|hr}}{{·}} {{Wikipedia languages/core|lt}}{{·}} {{Wikipedia languages/core|nn}}{{·}} {{Wikipedia languages/core|sk}}{{·}} {{Wikipedia languages/core|sl}}{{·}} {{Wikipedia languages/core|sh}}{{·}} {{Wikipedia languages/core|th}}&lt;/li&gt;
+
+&lt;/ul&gt;
+&lt;/div&gt;&lt;div id=&quot;metalink&quot; style=&quot;text-align:center;&quot; class=&quot;plainlinks&quot;&gt;'''{{sec link auto|meta|List of Wikipedias|Complete list of Wikipedias}}'''&lt;/div&gt;&lt;noinclude&gt;
+
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Wikipedia languages/core</title>
+    <ns>10</ns>
+    <id>27582701</id>
+      <sha1/>
+    <revision>
+      <id>386358865</id>
+      <timestamp>2010-09-22T17:33:26Z</timestamp>
+      <contributor>
+        <username>David Levy</username>
+        <id>197557</id>
+      </contributor>
+      <minor/>
+      <comment>moved [[Template:Wikipedialang/core]] to [[Template:Wikipedia languages/core]]: per [[Template talk:Wikipedialang#Move request]]</comment>
+      <text xml:space="preserve" bytes="206">&lt;includeonly&gt;{{sec link auto|{{{1}}}||3=&lt;span title=&quot;{{Language|{{{1}}}}} ({{{1}}}:)&quot; lang=&quot;{{{1}}}&quot; xml:lang=&quot;{{{1}}}&quot;&gt;{{#language:{{{1}}}}}&lt;/span&gt;}}&lt;/includeonly&gt;&lt;noinclude&gt;
+{{Documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:Yesno</title>
+    <ns>10</ns>
+    <id>22255088</id>
+      <sha1/>
+    <revision>
+      <id>391649268</id>
+      <timestamp>2010-10-19T14:35:06Z</timestamp>
+      <contributor>
+        <username>Amalthea</username>
+        <id>429625</id>
+      </contributor>
+      <comment>Making this template substable (sorry, job queue): Would be very usable to generalize input to some user talk page templates. Tested.</comment>
+      <text xml:space="preserve" bytes="340">{{&lt;includeonly&gt;safesubst:&lt;/includeonly&gt;#switch: {{&lt;includeonly&gt;safesubst:&lt;/includeonly&gt;lc: {{{1|¬}}} }}
+ |no
+ |n
+ |0        = {{{no|&lt;!-- null --&gt;}}}
+ |         = {{{blank|{{{no|&lt;!-- null --&gt;}}}}}}
+ |¬        = {{{¬|}}}
+ |yes
+ |y
+ |1        = {{{yes|yes}}}
+ |#default = {{{def|{{{yes|yes}}}}}}
+}}&lt;noinclude&gt;
+{{Documentation}}
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:`</title>
+    <ns>10</ns>
+    <id>17361218</id>
+      <sha1/>
+    <revision>
+      <id>432993524</id>
+      <timestamp>2011-06-07T07:40:15Z</timestamp>
+      <contributor>
+        <username>Dravecky</username>
+        <id>4588674</id>
+      </contributor>
+      <minor/>
+      <comment>[[Help:Reverting|Reverted]] edits by [[Special:Contributions/66.82.9.62|66.82.9.62]] ([[User talk:66.82.9.62|talk]]) to last version by Rjanag</comment>
+      <text xml:space="preserve" bytes="45">&amp;#39;&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:`s</title>
+    <ns>10</ns>
+    <id>21539977</id>
+      <sha1/>
+    <revision>
+      <id>270743979</id>
+      <timestamp>2009-02-14T21:57:21Z</timestamp>
+      <contributor>
+        <username>Rjanag</username>
+        <id>7676170</id>
+      </contributor>
+      <comment>nice</comment>
+      <text xml:space="preserve" bytes="46">{{`}}s&lt;noinclude&gt;{{documentation}}&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+  <page>
+    <title>Template:·</title>
+    <ns>10</ns>
+    <id>7599646</id>
+      <sha1/>
+    <revision>
+      <id>405160034</id>
+      <timestamp>2010-12-31T12:52:01Z</timestamp>
+      <contributor>
+        <username>Edokter</username>
+        <id>1624037</id>
+      </contributor>
+      <comment>Use &amp;middot;</comment>
+      <text xml:space="preserve" bytes="171">&amp;nbsp;&lt;span style=&quot;font-weight:bold;&quot;&gt;&amp;middot;&lt;/span&gt;&amp;#32;&lt;noinclude&gt;
+
+{{documentation}}
+&lt;!-- Add categories and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt;</text>
+    </revision>
+  </page>
+</mediawiki>
