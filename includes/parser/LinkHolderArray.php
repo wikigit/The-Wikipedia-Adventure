@@ -291,8 +291,11 @@ class LinkHolderArray {
 				} elseif ( $linkCache->isBadLink( $pdbk ) ) {
 					$colours[$pdbk] = 'new';
 				} else {
+				        /* Modified by The Wikipedia Adventure - pretend pages exist
+				           so we don't have to import them all. */
+					$colours[$pdbk] = '';
 					# Not in the link cache, add it to the query
-					$queries[$ns][] = $title->getDBkey();
+					# $queries[$ns][] = $title->getDBkey();
 				}
 			}
 		}

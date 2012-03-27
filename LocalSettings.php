@@ -131,6 +131,8 @@ require_once( "$IP/extensions/Renameuser/Renameuser.php" );
 require_once( "$IP/extensions/Nuke/Nuke.php" );
 require_once( "$IP/extensions/Interwiki/Interwiki.php" );
 require_once( "$IP/extensions/Collection/Collection.php" );
+require_once( "$IP/extensions/Cite/Cite.php" );
+require_once( "$IP/extensions/SpecialCite/SpecialCite.php" );
 
 # End of automatically generated settings.
 # Add more configuration options below.

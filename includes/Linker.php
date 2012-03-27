@@ -184,11 +184,13 @@ class Linker {
 		# If we don't know whether the page exists, let's find out.
 		wfProfileIn( __METHOD__ . '-checkPageExistence' );
 		if ( !in_array( 'known', $options ) and !in_array( 'broken', $options ) ) {
-			if ( $target->isKnown() ) {
+		        /* Modified for The Wikipedia Adventure to make it look like all articles
+			   exist, so I don't have to import so much. */
+			/* if ( $target->isKnown() ) { */
 				$options[] = 'known';
-			} else {
+			/* } else {
 				$options[] = 'broken';
-			}
+			}*/
 		}
 		wfProfileOut( __METHOD__ . '-checkPageExistence' );
 
