@@ -74,12 +74,20 @@ var setStep = function(stepNum) {
     $.cookie("twa-step", stepNum, { path: '/' });
 }
 
+var centerElement = function(element) {
+    element.style.top = '50%';
+    element.style.left = '50%';
+    element.style.right = '';
+    element.style.bottom = '';
+    $(element).css('margin-top', '' + -$(element).height()/2 + 'px');
+    $(element).css('margin-left', '' + -$(element).width()/2 + 'px');
+};
+
 var updateOverlays = function() {
     // Must call before enabling links selectively below
     DisableEnableLinks();
 
     arrowTarget = null;
-    markerArrow = '<img src="/wikipediaadventure/skins/common/images/Up-1.png" alt="Click here" width="100" height="89"/>';
 
     var instructions = document.getElementById('twa-instructions');
     instructions.style.position='fixed';
@@ -93,20 +101,15 @@ var updateOverlays = function() {
 
     var marker = document.getElementById('twa-marker');
     marker.innerHTML = '';
+    arrowTarget = null;
 
     if (getStep() == 'start') {
-        instructions.innerHTML = 'Welcome to <b>The Wikipedia Adventure</b>, a tutorial for new Wikipedia users. Instructions will appear in the lower-right. Click Next below to continue.</p>';
-        instructions.innerHTML += '<p><a onclick="goToStep(\'main-page-click-article\');">Next</a></p>';
-        // Center in window
-        instructions.style.top = '50%';
-        instructions.style.left = '50%';
-        instructions.style.right = '';
-        instructions.style.bottom = '';
-        $(instructions).css('margin-top', '' + -$(instructions).height()/2 + 'px');
-        $(instructions).css('margin-left', '' + -$(instructions).width()/2 + 'px');
+        instructions.innerHTML = '<p>Welcome to <b>The Wikipedia Adventure</b>, a tutorial for new Wikipedia users. Instructions will appear in the lower-right.</p>';
+        instructions.innerHTML += '<p>Would you like to review how to make an edit to an article?</p>';
+        instructions.innerHTML += '<p><a onclick="goToStep(\'main-page-click-article\');">Yes</a> <a onclick="goToStep(\'level-menu\');">No</a></p>';
+        centerElement(instructions);
       } else if (getStep() == "main-page-click-article") {
         instructions.innerHTML = '<p>Begin by clicking on the <b>George Tupou V</b> link to visit the article on George Tupou V, King of Tonga.</p>';
-        marker.innerHTML = markerArrow;
         arrowTarget = 'a[title="George Tupou V"]';
         $(arrowTarget)[0].onclick = function(){setStep('find-error')};
     } else if (getStep() == 'find-error') {
@@ -114,14 +117,12 @@ var updateOverlays = function() {
         var content = $("div[class=mw-content-ltr]")[0];
         content.innerHTML = content.innerHTML.replace(" deth ", ' <span id="deth" onclick="goToStep(\'show-error\')">deth</span> ');
     } else if (getStep() == 'show-error') {
-        instructions.innerHTML = '<p>Great job! The error is that "death" is misspelled as "deth". We\'re going to fix this.</p>';
+        instructions.innerHTML = '<p>Nice spotting! The error is that "death" is misspelled as "deth". We\'re going to fix this.</p>';
         instructions.innerHTML += '<p><a onclick="goToStep(\'click-edit-tab\');">Next</a></p>';
-        marker.innerHTML = markerArrow;
         $('#deth')[0].onclick = null;
         arrowTarget = '#deth';
     } else if (getStep() == 'click-edit-tab') {
         instructions.innerHTML = '<p>Start by clicking on the <b>Edit</b> tab to edit the article.</p>';
-        marker.innerHTML = markerArrow;
         arrowTarget = '#ca-edit';
         $(arrowTarget).find('a')[0].onclick = function(){setStep('editing');};
     } else if (getStep() == 'editing') {
@@ -130,15 +131,57 @@ var updateOverlays = function() {
         desired_value = $('#wpTextbox1')[0].value.replace(' deth ', ' death ');
     } else if (getStep() == 'done-editing') {
         if ($('#wpTextbox1')[0].value == desired_value) {
-            instructions.innerHTML = '<p>Good job! Next, click on the <b>Summary</b> field and enter a short explanation for your edit, such as "fixed spelling error". Then click <b>Next</b> below.</p>';
+            instructions.innerHTML = '<p>Good job! Next, click on the <b>Summary</b> field and enter a short explanation for your edit, such as "fixed spelling error". This is called an <i>edit summary</i>, and every edit should have one. Then click <b>Next</b> below.</p>';
             instructions.innerHTML += '<p><a onclick="goToStep(\'done-summary\');">Next</a></p>';
+            arrowTarget = '#wpSummary';
         } else {
             instructions.innerHTML = '<p>You made the change incorrectly. Make sure you changed <b>deth</b> to "death" and <b>made no other changes</b>. Click <b>Next</b> below to try again.</p>';
             instructions.innerHTML += '<p><a onclick="goToStep(\'done-editing\');">Next</a></p>';
         }
     } else if (getStep() == 'done-summary') {
-        instructions.innerHTML = '<p>Lesson still under construction.</p>';
+        if ($('#wpSummary')[0].value.length > 0) {
+            instructions.innerHTML = '<p>Great! Finally, click on <b>Save page</b> to save your changes to the article.</p>';
+            $('#editform')[0].onsubmit = function(){
+                // Don't really let them save - just redirect back to article, we'll fake the changes.
+                setStep('show-article-with-change');
+                window.location.href = wgArticlePath.replace('$1', 'George_Tupou_V');
+                return false;
+            }
+            arrowTarget = '#wpSave';
+        } else {
+            instructions.innerHTML = '<p>You did not enter a summary. Click on the <b>Summary</b> field indicated by the arrow and enter a short explanation for your edit, such as "fixed spelling error". Then click <b>Next</b> below.</p>';
+            instructions.innerHTML += '<p><a onclick="goToStep(\'done-summary\');">Next</a></p>';
+        }
+    } else if (getStep() == 'show-article-with-change') {
+        instructions.innerHTML = '<p>Your changes to the article appear instantly to all readers. If your changes were incorrect, another user can always easily change it back. Click <b>Next</b> below for your <b>Real Wikipedia Bonus Task</b>.</p>';
+        instructions.innerHTML += '<p><a onclick="goToStep(\'real-wikipedia-bonus-task\');">Next</a></p>';
+        var content = $("div[class=mw-content-ltr]")[0];
+        content.innerHTML = content.innerHTML.replace(" deth ", ' <span id="death">death</span> ');
+        arrowTarget = '#death';
+    } else if (getStep() == 'real-wikipedia-bonus-task') {
+        instructions.innerHTML = '<p><b>Real Wikipedia Bonus Task</b></p>';
+        instructions.innerHTML += '<p>You\'re now ready to make a real edit to Wikipedia. ';
+        instructions.innerHTML += 'Visit <a href="http://en.wikipedia.org" onclick="$(this).attr(\'target\', \'_blank\');">en.wikipedia.org</a> and click on the <b>Random article</b> link (indicated). ';
+        instructions.innerHTML += 'Look for a minor error in spelling, grammar, punctuation, or style and fix it. If you don\'t see one, click <b>Random article</b> again until you do. When done, click <b>Next</b> below.</p>';
+        instructions.innerHTML += '<p><a onclick="goToStep(\'lesson-complete\');">Next</a></p>';
+        arrowTarget = '#n-randompage';
+    } else if (getStep() == 'lesson-complete') {
+        instructions.innerHTML = '<p>Great job! You have completed the first level. Click <b>Level menu</b> below to choose another level.</p>';
+        instructions.innerHTML += '<p><a onclick="goToStep(\'level-menu\');">Level menu</a></p>';
+        centerElement(instructions);
+    } else if (getStep() == 'level-menu') {
+        instructions.innerHTML = '<p><b>Select a level</b></p>';
+        instructions.innerHTML += '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="setStep(\'start\');">Making your first edit</a></p>';
+        instructions.innerHTML += '<p><i>More levels to come!</i></p>';
+        centerElement(instructions);
+    } else {
+        instructions.innerHTML = '<p><font color="#ff0000">Unknown step name: ' + stepName + '</font></p>';
     }
+    
+    if (arrowTarget) {
+        marker.innerHTML = '<img src="' + stylepath + '/common/images/Up-1.png" alt="Click here" width="100" height="89"/>';
+    }
+    
     updatePositions();
 }
 
