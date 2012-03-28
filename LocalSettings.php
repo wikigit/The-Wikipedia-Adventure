@@ -24,11 +24,17 @@ $wgSitename      = "Wikipedia";
 ## defaults for all runtime URL paths are based off of this.
 ## For more information on customizing the URLs please see:
 ## http://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath       = "/wikipediaadventure";
+$wgScriptPath       = "/w";
+$wgArticlePath = '/wiki/$1';
+$wgUsePathInfo = true;
+
+# $wgScriptPath       = "/wikipediaadventure"; # For testing
+
 $wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "http://dcoetzee.dyndns.org";
+$wgServer           = "http://wikipediaadventure.moonflare.com";
+# $wgServer           = "http://localhost"; # For testing
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
@@ -57,7 +63,7 @@ $wgDBuser           = "";
 $wgDBpassword       = "";
 
 # SQLite-specific settings
-$wgSQLiteDataDir    = "/var/www/wikipediaadventure/data";
+$wgSQLiteDataDir    = "data";
 
 ## Shared memory settings
 $wgMainCacheType    = CACHE_NONE;

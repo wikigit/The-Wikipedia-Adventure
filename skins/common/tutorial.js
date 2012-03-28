@@ -175,7 +175,7 @@ var updateOverlays = function() {
         instructions.innerHTML += '<p><i>More levels to come!</i></p>';
         centerElement(instructions);
     } else {
-        instructions.innerHTML = '<p><font color="#ff0000">Unknown step name: ' + stepName + '</font></p>';
+        instructions.innerHTML = '<p><font color="#ff0000">Unknown step name: ' + getStep() + '</font></p>';
     }
     
     if (arrowTarget) {
