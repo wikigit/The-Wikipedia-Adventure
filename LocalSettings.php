@@ -28,7 +28,7 @@ $wgScriptPath       = "/wikipediaadventure";
 $wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "http://localhost";
+$wgServer           = "http://dcoetzee.dyndns.org";
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
