@@ -1,5 +1,3 @@
-exit();
-
 // Based on http://www.codeproject.com/Tips/61476/Disable-all-links-on-the-page-via-Javascript
 function DisableEnableLinks(){
   objLinks = document.links;

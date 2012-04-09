@@ -10,6 +10,9 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
+# Set when running on local testing server
+$testing = false;
+
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
@@ -24,18 +27,22 @@ $wgSitename      = "Wikipedia";
 ## defaults for all runtime URL paths are based off of this.
 ## For more information on customizing the URLs please see:
 ## http://www.mediawiki.org/wiki/Manual:Short_URL
-$wgScriptPath       = "/w";
-$wgArticlePath = '/wiki/$1';
-$wgUsePathInfo = true;
-
-# $wgScriptPath       = "/wikipediaadventure"; # For testing
+if ($testing) {
+  $wgScriptPath       = "/wikipediaadventure"; # For testing
+} else {
+  $wgScriptPath       = "/w";
+  $wgArticlePath = '/wiki/$1';
+  $wgUsePathInfo = true;
+}
 
 $wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer           = "http://wikipediaadventure.moonflare.com";
-# $wgServer             = "http://localhost"; # For testing
-
+if ($testing) {
+  $wgServer           = "http://localhost";
+} else {
+  $wgServer           = "http://wikipediaadventure.moonflare.com";
+}
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
