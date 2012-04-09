@@ -34,7 +34,8 @@ $wgScriptExtension  = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
 $wgServer           = "http://wikipediaadventure.moonflare.com";
-# $wgServer           = "http://localhost"; # For testing
+# $wgServer             = "http://localhost"; # For testing
+
 
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
@@ -42,6 +43,7 @@ $wgStylePath        = "$wgScriptPath/skins";
 ## The relative URL path to the logo.  Make sure you change this from the default,
 ## or else you'll overwrite your logo when you upgrade!
 $wgLogo             = "$wgStylePath/common/images/Wiki.png";
+$wgFavicon          = "$wgScriptPath/favicon.ico";
 
 ## UPO means: this is also a user preference option
 
@@ -66,7 +68,7 @@ $wgDBpassword       = "";
 $wgSQLiteDataDir    = "data";
 
 ## Shared memory settings
-$wgMainCacheType    = CACHE_NONE;
+$wgMainCacheType    = CACHE_ACCEL;
 $wgMemCachedServers = array();
 
 ## To enable image uploads, make sure the 'images' directory
@@ -153,3 +155,6 @@ $wgVectorUseSimpleSearch = true;
 $wgDefaultSkin = 'vector';
 $wgVectorUseIconWatch = true;
 $wgShowIPinHeader = false;
+
+# Caching stuff for performance
+$wgCacheDirectory = "$IP/cache";
