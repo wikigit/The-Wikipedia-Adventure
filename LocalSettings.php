@@ -10,12 +10,15 @@
 # Further documentation for configuration settings may be found at:
 # http://www.mediawiki.org/wiki/Manual:Configuration_settings
 
-# Set when running on local testing server
-$testing = false;
-
 # Protect against web entry
 if ( !defined( 'MEDIAWIKI' ) ) {
 	exit;
+}
+
+# Set when running on local testing server
+$testing = false;
+if (gethostname() == 'dcoetzee-dv8t') {
+  $testing = true;
 }
 
 ## Uncomment this to disable output compression

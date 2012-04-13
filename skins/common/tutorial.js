@@ -213,6 +213,10 @@ var updateCreateUser = function(step, instructions) {
     }    
 }
 
+var registerCheck = function() {
+    goToStep('RegisterSuccess');
+}
+
 var updateTwa = function(step, instructions) {
     switch(step) {
         case 'LevelMenu':
@@ -220,9 +224,24 @@ var updateTwa = function(step, instructions) {
                 '<p><b>Select a level</b></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="setStep(\'FirstEdit/Welcome\');">Making your first edit</a></p>' +
                 '<p><i>More levels to come!</i></p>';
-            centerElement(instructions);
             break;
         case "CreateAccount":
+            instructions.innerHTML =
+                '<div style="text-align:right;"><a onclick="goToStep(\'Twa/Login\');">Log in</a></div>' +
+                '<p>Please register so you can save your progress.</p>' +
+                '<form name="register" onsubmit="registerCheck(); return false;">' +
+                'Username (same as your Wikipedia username):<br/>' + 
+                '<input type="text" name="username" /><br />' +
+                'Password (may be different from your Wikipedia password):<br/>' + 
+                '<input type="text" name="password" /><br />' +
+                'Confirm password:<br/>' + 
+                '<input type="text" name="password-confirm" /><br/>' +
+                'E-mail address:<br/>' + 
+                '<input type="text" name="e-mail" />' +
+                '<p><input name="registerButton" type="submit" value="Register" /></p>' +
+                '</form>';
+            break;
+        case "RegisterSuccess":
             instructions.innerHTML =
                 '<p>Under construction</p>';
             break;
@@ -231,6 +250,7 @@ var updateTwa = function(step, instructions) {
                 '<p>Under construction</p>';
             break;
     }
+    centerElement(instructions);
 }
 
 var updateOverlays = function() {
@@ -257,14 +277,6 @@ var updateOverlays = function() {
     if (instructions.innerHTML === '') {
         instructions.innerHTML = '<p><font color="#ff0000">Unknown step name: ' + getStep() + '</font></p>';
     }
-}
-
-window.onresize = function(event) {
-     updatePositions();
-}
-
-window.onscroll = function(event) {
-     updatePositions();
 }
 
 var root=$('body')[0];
