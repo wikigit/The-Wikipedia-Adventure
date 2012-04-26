@@ -1,5 +1,8 @@
+// Created by Derrick Coetzee in 2012. All rights waived under Creative Commons
+// Zero Waiver (http://creativecommons.org/publicdomain/zero/1.0/).
+
 // Based on http://www.codeproject.com/Tips/61476/Disable-all-links-on-the-page-via-Javascript
-function DisableEnableLinks(){
+function disableLinks(){
   objLinks = document.links;
   for(i=0;i<objLinks.length;i++){
     objLinks[i].disabled = true;
@@ -10,50 +13,6 @@ function DisableEnableLinks(){
     objForms[i].disabled = true;
     objForms[i].onsubmit = function(){return false;}
   }
-}
-
-// From http://javascriptmagic.blogspot.com/2006/09/getting-scrolling-position-using.html
-// Scroll position support varies between browser, so do tests to figure out best one to use.
-function getScrollingPosition()
-{
-    var position = [0, 0];
-    if (typeof window.pageYOffset != 'undefined')
-    {
-        position = [
-            window.pageXOffset,
-            window.pageYOffset
-        ];
-    }
-    else if (typeof document.documentElement.scrollTop
-             != 'undefined' && document.documentElement.scrollTop > 0)
-    {
-        position = [
-            document.documentElement.scrollLeft,
-            document.documentElement.scrollTop
-        ];
-    }
-    else if (typeof document.body.scrollTop != 'undefined')
-    {
-        position = [
-            document.body.scrollLeft,
-            document.body.scrollTop
-        ];
-    }
-    return position;
-}
-
-// Gets rendered position of a given element relative to upper-left of page.
-// From http://stackoverflow.com/questions/442404/dynamically-retrieve-html-element-x-y-position-with-javascript
-// Users meouw, cwallenpoole / CC-BY
-function getOffset( el ) {
-    var _x = 0;
-    var _y = 0;
-    while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) {
-        _x += el.offsetLeft - el.scrollLeft;
-        _y += el.offsetTop - el.scrollTop;
-        el = el.parentNode;
-    }
-    return { top: _y, left: _x };
 }
 
 function tutorialapi(data, func) {
@@ -74,12 +33,12 @@ function logActionFunc(action, value, func) {
 		func);
 }
 
-var getStep = function() {
+function getStep() {
     result = $.cookie("twa-step");
     return result;
 }
 
-var setStep = function(stepName) {
+function setStep(stepName) {
     if (stepName.indexOf("/") == -1) {
         components = getStep().split('/');
         setStep(components[0] + "/" + stepName);
@@ -88,12 +47,12 @@ var setStep = function(stepName) {
     $.cookie("twa-step", stepName, { path: '/' });
 }
 
-var goToStep = function(stepName) {
+function goToStep(stepName) {
     setStep(stepName);
     updateOverlays();
 }
 
-var centerElement = function(element) {
+function centerElement(element) {
     element.style.top = '50%';
     element.style.left = '50%';
     element.style.right = '';
@@ -103,7 +62,7 @@ var centerElement = function(element) {
 };
 
 // Visually highlights a given element - currently can only do one at a time
-var highlightElement = function(target) {
+function highlightElement(target) {
     var marker = document.getElementById('twa-marker');
     marker.innerHTML = '<img src="' + stylepath + '/common/images/Up-1.png" width="100" height="89"/>';
     offset = $(target).offset();
@@ -112,7 +71,7 @@ var highlightElement = function(target) {
     return target;
 };
 
-var updateFirstEdit = function(step, instructions) {
+function updateFirstEdit(step, instructions) {
     switch(step) {
         case 'Welcome':
             instructions.innerHTML =
@@ -126,7 +85,14 @@ var updateFirstEdit = function(step, instructions) {
         case "MainPageClickArticle":
             instructions.innerHTML =
                 '<p>Begin by clicking on the <b>George Tupou V</b> link to visit the article on George Tupou V, King of Tonga.</p>';
-            $(highlightElement('a[title="George Tupou V"]'))[0].onclick = function(){logAction('clickarticle', ''); setStep('FindError')};
+            articleLink = $(highlightElement('a[title="George Tupou V"]'))[0];
+            articleLink.onclick = function(){
+				logActionFunc('clickarticle', '', function() {
+					setStep('FindError');
+					window.location.href = articleLink.href;
+				});
+				return false;
+			};
             break;
         case 'FindError':
             instructions.innerHTML =
@@ -145,7 +111,14 @@ var updateFirstEdit = function(step, instructions) {
         case 'ClickEditTab':
             instructions.innerHTML =
                 '<p>Start by clicking on the <b>Edit</b> tab to edit the article.</p>';
-            $(highlightElement('#ca-edit')).find('a')[0].onclick = function(){logAction('edittab', ''); setStep('Editing');};
+            editLink = $(highlightElement('#ca-edit')).find('a')[0];
+            editLink.onclick = function(){
+				logActionFunc('edittab', '', function() {
+					setStep('Editing');
+					window.location.href = editLink.href;
+				});
+				return false;
+			};
             break;
         case 'Editing':
             instructions.innerHTML =
@@ -219,7 +192,7 @@ var updateFirstEdit = function(step, instructions) {
     }    
 }
 
-var updateCreateUser = function(step, instructions) {
+function updateCreateUser(step, instructions) {
     switch(step) {
         case "Start":
             instructions.innerHTML =
@@ -235,12 +208,12 @@ var updateCreateUser = function(step, instructions) {
     }    
 }
 
-var registerCheck = function() {
+function registerCheck() {
 	logAction('register', ''); 
     goToStep('RegisterSuccess');
 }
 
-var updateTwa = function(step, instructions) {
+function updateTwa(step, instructions) {
     switch(step) {
         case 'LevelMenu':
             instructions.innerHTML =
@@ -276,9 +249,9 @@ var updateTwa = function(step, instructions) {
     centerElement(instructions);
 }
 
-var updateOverlays = function() {
-    // Must call before enabling links selectively below
-    DisableEnableLinks();
+function updateOverlays() {
+    // Must call before enabling links selectively in step handler
+    disableLinks();
 
     // Hide marker initially, so it won't show if it's not used
     var marker = document.getElementById('twa-marker');
@@ -302,18 +275,21 @@ var updateOverlays = function() {
     }
 }
 
-var root=$('body')[0];
+function createDynamicElements() {
+	var root=$('body')[0];
 
-var instructions =document.createElement('div');
-instructions.setAttribute('style','width: 300px; background-color:#FFFF88; border:2px solid; box-shadow: 10px 10px 5px rgba(128, 128, 128, 0.3);');
-instructions.id = 'twa-instructions';
-root.appendChild(instructions);
+	var instructions =document.createElement('div');
+	instructions.setAttribute('style','width: 300px; background-color:#FFFF88; border:2px solid; box-shadow: 10px 10px 5px rgba(128, 128, 128, 0.3);');
+	instructions.id = 'twa-instructions';
+	root.appendChild(instructions);
 
-var marker =document.createElement('div');
-marker.id = 'twa-marker';
-marker.style.position='absolute';
-root.appendChild(marker);
+	var marker =document.createElement('div');
+	marker.id = 'twa-marker';
+	marker.style.position='absolute';
+	root.appendChild(marker);	
+}
 
+createDynamicElements();
 if (document.URL.indexOf("/Main_Page") != -1) {
     setStep("FirstEdit/Welcome");
 }
