@@ -254,16 +254,19 @@ function updateCreateUser(step, instructions) {
             break;
         case "DoneCaptcha":
             if ($('#wpCaptchaWord')[0].value == 'chinsantes') {
+				selectedNames = [];
+				correctChosen = 0;
+				chosenName = '';
                 instructions.innerHTML =
                     '<p>Next you\'re going to choose a username. ' +
-                    'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it '
-                    +'(this will only temporarily be your username for this lesson):</p>' +
-                    '<ul>'+
-                    '<li><a onclick="selectedName=\'Jones Investment\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Jones Investment</a></li>' +
-                    '<li><a onclick="selectedName=\'terry@jones.com\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">terry@jones.com</a></li>' +
-                    '<li><a onclick="selectedName=\'Terry Jenkins\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Terry Jenkins</a></li>' +
-                    '<li><a onclick="selectedName=\'Administrator\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Administrator</a></li>' +
-                    '<li><a onclick="selectedName=\'Historybuff\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>' +
+                    'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it ' +
+                    '(this will only temporarily be your username for this lesson):</p>' +
+                    '<ul>' +
+                    '<li><span onclick="selectedNames.push(\'Jones Investment\'); logAction(\'selectname\', \'Jones Investment\'); goToStep(\'ChoseUsername\');">Jones Investment</a></li>' +
+                    '<li><span onclick="selectedNames.push(\'terry@jones.com\'); logAction(\'selectname\', \'terry@jones.com\'); goToStep(\'ChoseUsername\');">terry@jones.com</a></li>' +
+                    '<li><span onclick="selectedNames.push(\'Terry Jenkins\'); logAction(\'selectname\', \'Terry Jenkins\'); goToStep(\'ChoseUsername\');">Terry Jenkins</a></li>' +
+                    '<li><span onclick="selectedNames.push(\'Wikipedia Joe\'); logAction(\'selectname\', \'Wikipedia Joe\'); goToStep(\'ChoseUsername\');">Wikipedia Joe</a></li>' +
+                    '<li><span onclick="selectedNames.push(\'Historybuff\'); logAction(\'selectname\', \'Historybuff\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>' +
                     '</ul>';
             } else if ($('#wpCaptchaWord')[0].value == '') {
                 instructions.innerHTML =
@@ -276,9 +279,69 @@ function updateCreateUser(step, instructions) {
             }
             break;
         case "ChoseUsername":
+			list = '';
+			item = '<li><span onclick="selectedNames.push(\'Jones Investment\'); logAction(\'selectname\', \'Jones Investment\'); goToStep(\'ChoseUsername\');">Jones Investment</a></li>';
+			if (selectedNames.indexOf('Jones Investment') >= 0)	list += '<font color="#ff0000">' + item + '</font>'; else list += item;
+			item = '<li><span onclick="selectedNames.push(\'terry@jones.com\'); logAction(\'selectname\', \'terry@jones.com\'); goToStep(\'ChoseUsername\');">terry@jones.com</a></li>';
+			if (selectedNames.indexOf('terry@jones.com') >= 0)	list += '<font color="#ff0000">' + item + '</font>'; else list += item;
+			item = '<li><span onclick="selectedNames.push(\'Terry Jenkins\'); logAction(\'selectname\', \'Terry Jenkins\'); goToStep(\'ChoseUsername\');">Terry Jenkins</a></li>';
+			if (selectedNames.indexOf('Terry Jenkins') >= 0)	list += '<font color="#008800">' + item + '</font>'; else list += item;
+			item = '<li><span onclick="selectedNames.push(\'Wikipedia Joe\'); logAction(\'selectname\', \'Wikipedia Joe\'); goToStep(\'ChoseUsername\');">Wikipedia Joe</a></li>';
+			if (selectedNames.indexOf('Wikipedia Joe') >= 0)	list += '<font color="#ff0000">' + item + '</font>'; else list += item;
+			item = '<li><span onclick="selectedNames.push(\'Historybuff\'); logAction(\'selectname\', \'Historybuff\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>';
+			if (selectedNames.indexOf('Historybuff') >= 0)	list += '<font color="#008800">' + item + '</font>'; else list += item;
+            instructions.innerHTML =
+				'<p>Next you\'re going to choose a username. ' +
+				'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it ' +
+				'(this will only temporarily be your username for this lesson):</p>' +
+				'<ul>' + list + '</ul>';
+			
+			selectedName = selectedNames[selectedNames.length-1];
+			if (selectedName === 'Jones Investment') {
+                instructions.innerHTML +=
+					'<p>Names representing a company, group, or product are not permitted. ' +
+					'Names must represent an individual. Please try again.</p>';
+			}
+			if (selectedName === 'terry@jones.com') {
+                instructions.innerHTML +=
+					'<p>E-mail addresses or domain names are not permitted. ' +
+					'Please try again.</p>';
+			}
+			if (selectedName === 'Terry Jenkins') {
+                instructions.innerHTML +=
+					'<p>Good! Real names are allowed as usernames. ' +
+					'However, keep in mind that all your changes will be publicly associated with your real name if you use it.</p>';
+				if (!chosenName) chosenName = selectedName;
+				correctChosen = correctChosen + 1;
+			}
+			if (selectedName === 'Wikipedia Joe') {
+                instructions.innerHTML +=
+					'<p>Names containing "Wikipedia" are not permitted because people may think ' +
+					'you are officially affiliated with Wikipedia.</p>';
+			}
+			if (selectedName === 'Historybuff') {
+                instructions.innerHTML +=
+					'<p>Good! Aliases or handles are common and permitted on Wikipedia, as long as ' +
+					'they identify you as an individual.</p>';
+				if (!chosenName) chosenName = selectedName;
+				correctChosen = correctChosen + 1;
+			}
+			$('#wpName2')[0].value = chosenName;
+
+			if (correctChosen == 1) {
+                instructions.innerHTML += '<p>There is one more acceptable username. Can you find it?</p>';				
+			}
+			if (correctChosen == 2) {
+                instructions.innerHTML +=
+					'<p>You\'ve now found both acceptable usernames. Click <b>Next</b> below to continue.</p>' +
+                    '<p><a onclick="logAction(\'next\', chosenName); goToStep(\'DoneUsernameSelection\');">Next</a></p>';
+			}
+			
+			break;
+		case "DoneUsernameSelection":
 			instructions.innerHTML =
-				'<p>Under construction - ' + selectedName + '</p>';
-			break;            
+				'<p>Under construction</p>';
+			break;
     }    
 }
 
