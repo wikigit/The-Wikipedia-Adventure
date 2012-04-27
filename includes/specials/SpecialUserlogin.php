@@ -149,6 +149,10 @@ class LoginForm extends SpecialPage {
 			}
 		}
 		$this->mainLoginForm( '' );
+
+		# The Wikipedia Adventure - inserted this to match enwp,
+		# but why don't they need a patch?
+		$this->setHeaders();
 	}
 
 	/**

@@ -1,6 +1,13 @@
 // Created by Derrick Coetzee in 2012. All rights waived under Creative Commons
 // Zero Waiver (http://creativecommons.org/publicdomain/zero/1.0/).
 
+function assert(condition) {
+	if (!condition) {
+		console.log("Assertion failed at: ");
+		console.trace();
+	}
+}
+
 // Based on http://www.codeproject.com/Tips/61476/Disable-all-links-on-the-page-via-Javascript
 function disableLinks(){
   objLinks = document.links;
@@ -67,7 +74,7 @@ function highlightElement(target) {
     marker.innerHTML = '<img src="' + stylepath + '/common/images/Up-1.png" width="100" height="89"/>';
     offset = $(target).offset();
     marker.style.left = '' + (offset.left + $(target).width()/2 - $(marker).width()/2) + 'px'; // center
-    marker.style.top = '' + (offset.top + $(target).height()) + 'px'; // right under pt-login
+    marker.style.top = '' + (offset.top + $(target).height()) + 'px'; // right under the target
     return target;
 };
 
@@ -185,8 +192,16 @@ function updateFirstEdit(step, instructions) {
             break;
         case 'LessonComplete':
             instructions.innerHTML =
-                '<p>Great job! You have completed the first level. Click <b>Level menu</b> below to choose another level.</p>' +
-                '<p><a onclick="logAction(\'levelmenu\', \'\'); goToStep(\'Twa/LevelMenu\');">Level menu</a></p>';
+                '<p>Great job! You have completed the first level. Click <b>Next</b> below to proceed to the next level.</p>' +
+                '<p><a id="twa-next" href="' + wgArticlePath.replace('$1', 'Main_Page') + '">Next</a></p>';
+            nextLink = $('#twa-next')[0];
+            nextLink.onclick = function(){
+				logActionFunc('next', '', function() {
+					setStep('CreateUser/Start');
+					window.location.href = nextLink.href;
+				});
+				return false;
+			};
             centerElement(instructions);
             break;
     }    
@@ -195,6 +210,7 @@ function updateFirstEdit(step, instructions) {
 function updateCreateUser(step, instructions) {
     switch(step) {
         case "Start":
+			assert(document.URL.indexOf("/Main_Page") != -1);
             instructions.innerHTML =
                 '<p>Do you already have a user account registered on Wikipedia?</p>' +
                 '<p><a onclick="logAction(\'yes\', \'\'); goToStep(\'Twa/CreateAccount\');">Yes</a> ' +
@@ -203,8 +219,66 @@ function updateCreateUser(step, instructions) {
             break;
         case "MainPageClickLogIn":
             instructions.innerHTML =
-                '<p>Under construction</p>';
+                '<p>We\'re going to register a user account. ' +
+                'It is recommended that every editor create a user account to help keep track of what changes they make over time. ' +
+                'Start by clicking on the <b>Log in/create account</b> link in the upper-right corner.</p>';
+            loginLink = $(highlightElement('#pt-login')).find('a')[0];
+            loginLink.onclick = function(){
+				logActionFunc('login', '', function() {
+					setStep('ClickCreateOne');
+					window.location.href = loginLink.href;
+				});
+				return false;
+			};
             break;
+        case "ClickCreateOne":
+            instructions.innerHTML =
+                '<p>To create a new account, click the <b>Create one</b> link.</p>';
+            createOneLink = $(highlightElement('#userloginlink')).find('a')[0];
+            createOneLink.onclick = function(){
+				logActionFunc('createone', '', function() {
+					setStep('CreateAccountPage');
+					window.location.href = createOneLink.href;
+				});
+				return false;
+			};
+            break;
+        case "CreateAccountPage":
+            instructions.innerHTML =
+                '<p>This is the account creation page.' +
+                'The first step is to enter the obscured word "<b>chinsantes</b>" in the box. ' +
+                'This protects against automatic account creation. ' +
+                'Do so, and then click <b>Next</b> below.</p>' +
+                '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
+            highlightElement('#wpCaptchaWord');
+            break;
+        case "DoneCaptcha":
+            if ($('#wpCaptchaWord')[0].value == 'chinsantes') {
+                instructions.innerHTML =
+                    '<p>Next you\'re going to choose a username. ' +
+                    'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it '
+                    +'(this will only temporarily be your username for this lesson):</p>' +
+                    '<ul>'+
+                    '<li><a onclick="selectedName=\'Jones Investment\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Jones Investment</a></li>' +
+                    '<li><a onclick="selectedName=\'terry@jones.com\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">terry@jones.com</a></li>' +
+                    '<li><a onclick="selectedName=\'Terry Jenkins\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Terry Jenkins</a></li>' +
+                    '<li><a onclick="selectedName=\'Administrator\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Administrator</a></li>' +
+                    '<li><a onclick="selectedName=\'Historybuff\'; logAction(\'selectname\', \'\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>' +
+                    '</ul>';
+            } else if ($('#wpCaptchaWord')[0].value == '') {
+                instructions.innerHTML =
+                    '<p>You must enter the word "<b>chinsantes</b>" in the box below the obscured word to continue. Please enter it and then click <b>Next</b>.</p>' +
+                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
+			} else {
+                instructions.innerHTML =
+                    '<p>You entered the obscured word "<b>chinsantes</b>" incorrectly. Please try again and then click <b>Next</b>.</p>' +
+                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
+            }
+            break;
+        case "ChoseUsername":
+			instructions.innerHTML =
+				'<p>Under construction - ' + selectedName + '</p>';
+			break;            
     }    
 }
 
@@ -219,6 +293,7 @@ function updateTwa(step, instructions) {
             instructions.innerHTML =
                 '<p><b>Select a level</b></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Making your first edit\', \'\'); setStep(\'FirstEdit/Welcome\');">Making your first edit</a></p>' +
+                '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Registering a user account\', \'\'); setStep(\'CreateUser/Start\');">Registering a user account</a></p>' +
                 '<p><i>More levels to come!</i></p>';
             break;
         case "CreateAccount":
@@ -290,7 +365,9 @@ function createDynamicElements() {
 }
 
 createDynamicElements();
-if (document.URL.indexOf("/Main_Page") != -1) {
+if (document.URL.indexOf("/Main_Page") != -1 &&
+    getStep() != 'CreateUser/Start')
+{
     setStep("FirstEdit/Welcome");
 }
 updateOverlays();

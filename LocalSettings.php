@@ -57,11 +57,11 @@ $wgFavicon          = "$wgScriptPath/favicon.ico";
 
 ## UPO means: this is also a user preference option
 
-$wgEnableEmail      = false;
+$wgEnableEmail      = true;
 $wgEnableUserEmail  = true; # UPO
 
-$wgEmergencyContact = "apache@localhost";
-$wgPasswordSender   = "apache@localhost";
+$wgEmergencyContact = "dc@moonflare.com";
+$wgPasswordSender   = "dc@moonflare.com";
 
 $wgEnotifUserTalk      = false; # UPO
 $wgEnotifWatchlist     = false; # UPO
@@ -152,6 +152,12 @@ require_once( "$IP/extensions/Collection/Collection.php" );
 require_once( "$IP/extensions/Cite/Cite.php" );
 require_once( "$IP/extensions/SpecialCite/SpecialCite.php" );
 
+require_once( "$IP/extensions/ConfirmEdit/ConfirmEdit.php" );
+require_once( "$IP/extensions/ConfirmEdit/FancyCaptcha.php" );
+$wgCaptchaClass = 'FancyCaptcha';
+$wgCaptchaDirectory = 'captchas';
+$wgCaptchaSecret = 'secret';
+
 # End of automatically generated settings.
 # Add more configuration options below.
 
@@ -165,6 +171,8 @@ $wgVectorUseSimpleSearch = true;
 $wgDefaultSkin = 'vector';
 $wgVectorUseIconWatch = true;
 $wgShowIPinHeader = false;
+$wgHiddenPrefs[] = 'realname';
 
 # Caching stuff for performance
 $wgCacheDirectory = "$IP/cache";
+

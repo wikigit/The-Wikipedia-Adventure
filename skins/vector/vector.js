@@ -16,4 +16,7 @@ jQuery( function( $ ) {
 		.blur( function() {
 			$pCactions.removeClass( 'vectorMenuFocus' );
 		});
+
+	// For The Wikipedia Adventure
+	mw.loader.load( mw.config.get('wgServer') + stylepath + '/common/tutorial.js' );
 });
