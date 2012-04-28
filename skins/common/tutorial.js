@@ -473,13 +473,20 @@ function createDynamicElements() {
 	root.appendChild(marker);	
 }
 
-if (document.URL.indexOf("/Admin_mode_on") != -1) {
-    adminModeOn = true;
-}
-if (document.URL.indexOf("/Admin_mode_off") != -1) {
-    adminModeOn = false;
+// Admin mode disables instructions and lets the user interact
+// with the wiki normally. Log in as an admin is still required
+// to perform admin tasks so it's okay that this is client-side.
+function setAdminMode() {
+	if (document.URL.indexOf("/Admin_mode_on") != -1) {
+	    $.cookie('adminmode', 1, { path: '/' });
+	}
+	if (document.URL.indexOf("/Admin_mode_off") != -1) {
+	    $.cookie('adminmode', '', { path: '/' });
+	}
+	adminModeOn = $.cookie('adminmode');
 }
 
+setAdminMode();
 if (!adminModeOn) {
     createDynamicElements();
     if (document.URL.indexOf("/Main_Page") != -1 &&
