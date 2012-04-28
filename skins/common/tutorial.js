@@ -427,10 +427,19 @@ function createDynamicElements() {
 	root.appendChild(marker);	
 }
 
-createDynamicElements();
-if (document.URL.indexOf("/Main_Page") != -1 &&
-    getStep() != 'CreateUser/Start')
-{
-    setStep("FirstEdit/Welcome");
+if (document.URL.indexOf("/Admin_mode_on") != -1) {
+    adminModeOn = true;
 }
-updateOverlays();
+if (document.URL.indexOf("/Admin_mode_off") != -1) {
+    adminModeOn = false;
+}
+
+if (!adminModeOn) {
+    createDynamicElements();
+    if (document.URL.indexOf("/Main_Page") != -1 &&
+	getStep() != 'CreateUser/Start')
+    {
+	setStep("FirstEdit/Welcome");
+    }
+    updateOverlays();
+}
