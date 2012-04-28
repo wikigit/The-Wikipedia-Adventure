@@ -144,7 +144,7 @@ function updateFirstEdit(step, instructions) {
                 instructions.innerHTML =
                     '<p>You made the change incorrectly. Make sure you changed <b>deth</b> to "death" and <b>made no other changes</b>. ' +
                     'Click <b>Next</b> below to try again.</p>' +
-                    '<p><a onclick="logAction(\'next\', \'\'); goToStep(\'DoneEditing\');">Next</a></p>';
+                    '<p><a onclick="logAction(\'next\', \'\'); updateOverlays();">Next</a></p>';
             }
             break;
         case 'DoneSummary':
@@ -166,7 +166,7 @@ function updateFirstEdit(step, instructions) {
                     '<p>You did not enter a summary. ' +
                     'Click on the <b>Summary</b> field indicated by the arrow and enter a short explanation for your edit, such as "fixed spelling error". ' +
                     'Then click <b>Next</b> below.</p>' +
-                    '<p><a onclick="logAction(\'next\', $(\'#wpSummary\')[0].value); goToStep(\'DoneSummary\');">Next</a></p>';
+                    '<p><a onclick="logAction(\'next\', $(\'#wpSummary\')[0].value);  updateOverlays();">Next</a></p>';
             }
             break;
         case 'ShowArticleWithChange':
@@ -219,7 +219,7 @@ function updateCreateUser(step, instructions) {
             break;
         case "MainPageClickLogIn":
             instructions.innerHTML =
-                '<p>We\'re going to register a user account. ' +
+                '<p>This level demonstrates how to register a user account. ' +
                 'It is recommended that every editor create a user account to help keep track of what changes they make over time. ' +
                 'Start by clicking on the <b>Log in/create account</b> link in the upper-right corner.</p>';
             loginLink = $(highlightElement('#pt-login')).find('a')[0];
@@ -253,14 +253,14 @@ function updateCreateUser(step, instructions) {
             highlightElement('#wpCaptchaWord');
             break;
         case "DoneCaptcha":
-            if ($('#wpCaptchaWord')[0].value == 'chinsantes') {
+            if ($('#wpCaptchaWord')[0].value === 'chinsantes') {
 				selectedNames = [];
 				correctChosen = 0;
 				chosenName = '';
                 instructions.innerHTML =
                     '<p>Next you\'re going to choose a username. ' +
                     'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it ' +
-                    '(this will only temporarily be your username for this lesson):</p>' +
+                    '(this will only temporarily be your username for this level):</p>' +
                     '<ul>' +
                     '<li><span onclick="selectedNames.push(\'Jones Investment\'); logAction(\'selectname\', \'Jones Investment\'); goToStep(\'ChoseUsername\');">Jones Investment</a></li>' +
                     '<li><span onclick="selectedNames.push(\'terry@jones.com\'); logAction(\'selectname\', \'terry@jones.com\'); goToStep(\'ChoseUsername\');">terry@jones.com</a></li>' +
@@ -268,14 +268,14 @@ function updateCreateUser(step, instructions) {
                     '<li><span onclick="selectedNames.push(\'Wikipedia Joe\'); logAction(\'selectname\', \'Wikipedia Joe\'); goToStep(\'ChoseUsername\');">Wikipedia Joe</a></li>' +
                     '<li><span onclick="selectedNames.push(\'Historybuff\'); logAction(\'selectname\', \'Historybuff\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>' +
                     '</ul>';
-            } else if ($('#wpCaptchaWord')[0].value == '') {
+            } else if ($('#wpCaptchaWord')[0].value === '') {
                 instructions.innerHTML =
                     '<p>You must enter the word "<b>chinsantes</b>" in the box below the obscured word to continue. Please enter it and then click <b>Next</b>.</p>' +
-                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
+                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); updateOverlays();">Next</a></p>';
 			} else {
                 instructions.innerHTML =
                     '<p>You entered the obscured word "<b>chinsantes</b>" incorrectly. Please try again and then click <b>Next</b>.</p>' +
-                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
+                    '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); updateOverlays();">Next</a></p>';
             }
             break;
         case "ChoseUsername":
@@ -291,9 +291,6 @@ function updateCreateUser(step, instructions) {
 			item = '<li><span onclick="selectedNames.push(\'Historybuff\'); logAction(\'selectname\', \'Historybuff\'); goToStep(\'ChoseUsername\');">Historybuff</a></li>';
 			if (selectedNames.indexOf('Historybuff') >= 0)	list += '<font color="#008800">' + item + '</font>'; else list += item;
             instructions.innerHTML =
-				'<p>Next you\'re going to choose a username. ' +
-				'Read the instructions under <b>Choose a username/password</b> above and then choose one of the following usernames by clicking it ' +
-				'(this will only temporarily be your username for this lesson):</p>' +
 				'<ul>' + list + '</ul>';
 			
 			selectedName = selectedNames[selectedNames.length-1];
@@ -316,8 +313,8 @@ function updateCreateUser(step, instructions) {
 			}
 			if (selectedName === 'Wikipedia Joe') {
                 instructions.innerHTML +=
-					'<p>Names containing "Wikipedia" are not permitted because people may think ' +
-					'you are officially affiliated with Wikipedia.</p>';
+					'<p>Names containing "Wikipedia" are not permitted because they suggest ' +
+					'official affiliation with Wikipedia.</p>';
 			}
 			if (selectedName === 'Historybuff') {
                 instructions.innerHTML +=
@@ -339,6 +336,55 @@ function updateCreateUser(step, instructions) {
 			
 			break;
 		case "DoneUsernameSelection":
+			instructions.innerHTML =
+				'<p>Next enter your password. Wikipedia allows very long passwords, so a phrase or ' +
+				'sentence (but not a quotation/lyric) is a good choice. Fill your password in both the ' +
+				'<b>Password</b> and <b>Retype password</b> fields, then click <b>Next</b>.</p>' +
+                '<p><a onclick="logAction(\'next\', $(\'#wpPassword2\')[0].value.length); goToStep(\'DonePassword\');">Next</a></p>';
+            highlightElement('#wpRetype'); // Marker under lower field so it doesn't cover either
+			break;
+		case "DonePassword":
+            if ($('#wpPassword2')[0].value !== '' && ($('#wpPassword2')[0].value === $('#wpRetype')[0].value)) {
+                instructions.innerHTML =
+                    '<p>Next enter your e-mail address. ' +
+                    'It can be used to reset your password in the event you forget it, and for other Wikipedians to contact you privately. ' +
+                    'It will never be revealed publicly. Click <b>Next</b> when done.' +
+					'<p><a onclick="logAction(\'next\', $(\'#wpEmail\')[0].value); goToStep(\'DoneEmail\');">Next</a></p>';
+				highlightElement('#wpEmail');
+            } else if ($('#wpPassword2')[0].value === '' || $('#wpRetype')[0].value === '') {
+				console.log('foo1: ' + $('#wpPassword2')[0].value);
+				console.log('foo2: ' + $('#wpRetype')[0].value);
+                instructions.innerHTML =
+                    '<p>You must enter your password in both the <b>Password</b> and <b>Retype password</b> fields. Please try again and then click <b>Next</b>.</p>' +
+					'<p><a onclick="logAction(\'next\', $(\'#wpPassword2\')[0].value.length); updateOverlays();">Next</a></p>';
+				highlightElement('#wpRetype');
+			} else {
+                instructions.innerHTML =
+                    '<p>The passwords you typed did not match. You may have made a typing error. Please try again and then click <b>Next</b>.</p>' +
+					'<p><a onclick="logAction(\'next\', $(\'#wpPassword2\')[0].value.length); updateOverlays();">Next</a></p>';
+				highlightElement('#wpRetype');
+            }
+			break;
+        case "DoneEmail":
+            if ($('#wpEmail')[0].value !== '') {
+                instructions.innerHTML =
+                    '<p>Great job, you\'re done! Click the <b>Create account</b> button to continue.';
+                $('#userlogin2')[0].onsubmit = function(){
+                    // Don't really let them create an account - we'll fake the appearance of the user stuff in the upper-right.
+                    logActionFunc('createaccount', '', function() {
+                        setStep('ShowSuccessScreen');
+                        window.location.href = wgScript + ''; // TODO
+					});
+                    return false;
+                }
+				highlightElement('#wpCreateaccount');
+            } else {
+                instructions.innerHTML =
+                    '<p>E-mail addresses are optional on Wikipedia, but required in this demonstration. Please enter an address and click <b>Next</b>.</p>' +
+					'<p><a onclick="logAction(\'next\', $(\'#wpEmail\')[0].value); updateOverlays();">Next</a></p>';
+			}
+			break;
+		case "ShowSuccessScreen":
 			instructions.innerHTML =
 				'<p>Under construction</p>';
 			break;
