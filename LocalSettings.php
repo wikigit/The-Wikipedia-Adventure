@@ -44,7 +44,7 @@ $wgScriptExtension  = ".php";
 if ($testing) {
   $wgServer           = "http://localhost";
 } else {
-  $wgServer           = "http://wikipediaadventure.moonflare.com";
+  $wgServer           = "http://en.wikipediaadventure.org";
 }
 
 ## The relative URL path to the skins directory
