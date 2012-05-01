@@ -450,7 +450,7 @@ function updateCreateUser(step, instructions) {
 				disableLinks();
 			});
 			instructions.innerHTML =
-				'<p>You are now done creating an account. Your username appears in the upper-right corner of the screen.</p>' +
+				'<p>You are now done creating an account. Your username appears in the upper-right corner of the screen to show that you are logged in.</p>' +
 				'<p>This page suggests links for more information. ' +
 				'You may also receive a page asking you to complete a user page. This is optional.</p>' +
 				'<p>Press <b>Next</b> for your <b>Real Wikipedia Task</b>.</p>' +
