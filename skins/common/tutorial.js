@@ -621,7 +621,7 @@ function updateTwa(step, instructions) {
                  '<p>You have successfully created an account at The Wikipedia Adventure. ' +
                  'In the future, click the "Log in" link at the top-right of the yellow welcome box ' +
                  'to log in.</p>' +
-                 '<p>Your progress has been saved. Click <b>Level menu</b> below to select your next lesson.</p>';
+                 '<p>Your progress has been saved. Click <b>Level menu</b> below to select your next lesson.</p>' +
                  '<p><a onclick="logAction(\'levelmenu\', \'\'); goToStep(\'LevelMenu\');">Level Menu</a></p>';
             break;
         case "Login":

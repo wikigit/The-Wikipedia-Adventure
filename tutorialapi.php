@@ -13,10 +13,10 @@ function getConfirmationCode($user) {
 
 function getPasswordHash($user, $password) {
 	global $wgTwaSecretKey;
-	# Salt and stretch - iteration count chosen to take about 2 secs
+	# Salt and stretch
 	$salt = $wgTwaSecretKey . $user;
 	$password_hash = '';
-	for ($i=0; $i<3000000; $i++) {
+	for ($i=0; $i<1000000; $i++) {
 		$password_hash = md5($password_hash . $password . $salt);
 	}
 	return base_convert($password_hash, 16, 36); # Compress
