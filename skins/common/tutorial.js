@@ -729,7 +729,7 @@ setAdminMode();
 if (!adminModeOn) {
     createDynamicElements();
     if (document.URL.indexOf("/Main_Page") != -1 &&
-		getStep().indexOf("/Start") == -1)
+	(!getStep() || getStep().indexOf("/Start") == -1))
     {
 	if ($.cookie("logged_in")) {
 		setStep("Twa/LevelMenu");
