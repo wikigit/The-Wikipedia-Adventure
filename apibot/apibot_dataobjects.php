@@ -1,4 +1,5 @@
 <?php
+namespace apibot;
 #
 #  Apibot - a MediaWiki bot.
 #  Data objects module.

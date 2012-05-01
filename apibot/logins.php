@@ -1,4 +1,5 @@
 <?php
+namespace apibot;
 
 $wikipedia_en = array (
   'name'     => 'English-language Wikipedia',
