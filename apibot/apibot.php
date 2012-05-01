@@ -1,4 +1,5 @@
 <?php
+namespace apibot;
 #
 #  A MediaWiki bot - used for automated editing of pages on sites
 #  powered by MediaWiki.

@@ -1,4 +1,5 @@
 <?php
+namespace apibot;
 #  browser utils
 #
 #  Copyright (C) 2004 Borislav Manolov

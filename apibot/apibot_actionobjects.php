@@ -1,4 +1,5 @@
 <?php
+namespace apibot;
 #
 #  An Apibot extension - ActionObjects. Used together with the Iterators.
 #

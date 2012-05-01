@@ -176,3 +176,6 @@ $wgHiddenPrefs[] = 'realname';
 # Caching stuff for performance
 $wgCacheDirectory = "$IP/cache";
 
+$wgTwaUserName = 'The Wikipedia Adventure';
+# Defines $wgTwaUserPassword, $wgTwaSecretKey
+require ( dirname( __FILE__ ) . '/LocalSettingsPrivate.php' );
