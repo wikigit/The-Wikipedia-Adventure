@@ -8,6 +8,11 @@ function assert(condition) {
 	}
 }
 
+String.prototype.replaceall = function(oldStr, newStr) {
+	// Based on http://stackoverflow.com/questions/542232/in-javascript-how-can-i-perform-a-global-replace-on-string-with-a-variable-insi
+	return this.split(oldStr).join(newStr);
+}
+
 // Based on http://www.codeproject.com/Tips/61476/Disable-all-links-on-the-page-via-Javascript
 function disableLinks(){
   objLinks = document.links;
@@ -292,6 +297,9 @@ function updateCreateUser(step, instructions) {
                 'Do so, and then click <b>Next</b> below.</p>' +
                 '<p><a onclick="logAction(\'next\', $(\'#wpCaptchaWord\')[0].value); goToStep(\'DoneCaptcha\');">Next</a></p>';
             highlightElement('#wpCaptchaWord');
+            // In case browser remembers old log-in, this clears it
+			$('#wpName2')[0].value = '';
+			$('#wpPassword2')[0].value = '';
             break;
         case "DoneCaptcha":
             if ($('#wpCaptchaWord')[0].value === 'chinsantes') {
@@ -412,10 +420,8 @@ function updateCreateUser(step, instructions) {
                     '<p>Great job, you\'re done! Click the <b>Create account</b> button to continue.';
                 $('#userlogin2')[0].onsubmit = function(){
                     // Don't really let them create an account - we'll fake the appearance of the user stuff in the upper-right.
-                    logActionFunc('createaccount', '', function() {
-                        setStep('ShowSuccessScreen');
-                        window.location.href = wgScript + ''; // TODO
-					});
+                    logActionFunc('createaccount', '');
+                    goToStep('ShowSuccessScreen');
                     return false;
                 }
 				highlightElement('#wpCreateaccount');
@@ -426,19 +432,36 @@ function updateCreateUser(step, instructions) {
 			}
 			break;
 		case "ShowSuccessScreen":
+			// Fake registration success screen by modifying registration screen
+			$('#firstHeading')[0].innerHTML = 'Login success';
+			$('#p-personal')[0].innerHTML =
+				('<h5>Personal tools</h5>' +
+				'<ul>' +
+					'<li id="pt-userpage"><a href="/wiki/User:{{username}}" class="new" title="Your user page [alt-shift-.]" accesskey=".">{{username}}</a></li>' +
+					'<li id="pt-mytalk"><a href="/wiki/User_talk:{{username}}" class="new" title="Your talk page [alt-shift-n]" accesskey="n">My talk</a></li>' +
+					'<li id="pt-mysandbox"><a title="Go to your sandbox" href="/wiki/Special:MyPage/sandbox?action=edit&amp;preload=Template:User_sandbox/preload&amp;editintro=Template:User_sandbox">My sandbox</a></li><li id="pt-preferences"><a href="/wiki/Special:Preferences" title="Your preferences">My preferences</a></li>' +
+					'<li id="pt-watchlist"><a href="/wiki/Special:Watchlist" title="The list of pages that you are monitoring for changes [alt-shift-l]" accesskey="l">My watchlist</a></li>' +
+					'<li id="pt-mycontris"><a href="/wiki/Special:Contributions/{{username}}" title="A list of your contributions [alt-shift-y]" accesskey="y">My contributions</a></li>' +
+					'<li id="pt-logout"><a href="/w/index.php?title=Special:UserLogout&amp;returnto=Special%3ABlockList&amp;returntoquery=dir%3Dprev%26offset%3D20120501010702" title="Log out">Log out</a></li>' +
+				'</ul>').replaceall('{{username}}', chosenName);
+			disableLinks();
+			$.get(wgScriptPath + "/skins/common/registerSuccess.html", function(data) {
+				$('#bodyContent')[0].innerHTML = data.replaceall('{{username}}', chosenName);
+				disableLinks();
+			});
 			instructions.innerHTML =
 				'<p>You are now done creating an account. Your username appears in the upper-right corner of the screen.</p>' +
 				'<p>This page suggests links for more information. ' +
 				'You may also receive a page asking you to complete a user page. This is optional.</p>' +
 				'<p>Press <b>Next</b> for your <b>Real Wikipedia Task</b>.</p>' +
-                '<p><a onclick="logAction(\'next\', \'\'); goToStep(\'RealWikipediaTask\');">Next</a></p>';
-			// highlightElement('#pt-userpage');
+				'<p><a onclick="logAction(\'next\', \'\'); goToStep(\'RealWikipediaTask\');">Next</a></p>';
+			highlightElement($('#pt-userpage').find('a')[0]);
 			break;
 		case "RealWikipediaTask":
 			instructions.innerHTML =
-				'<p>It\'s now time to create an account on the real Wikipedia. '
-				'Visit <a href="http://en.wikipedia.org" onclick="$(this).attr(\'target\', \'_blank\');">en.wikipedia.org</a> and follow the steps in this lesson. Then click <b>Next</b> below. ' +
-				'You must create an account to continue.</p>' +
+				'<p>It\'s now time to create an account on the real Wikipedia. ' +
+				'Visit <a href="http://en.wikipedia.org" onclick="$(this).attr(\'target\', \'_blank\');">en.wikipedia.org</a> and follow the steps in this lesson. Then click <b>Next</b> below.</p> ' +
+				'<p>You must create an account to continue.</p>' +
                 '<p><a onclick="logAction(\'next\', \'\'); goToStep(\'Twa/CreateAccount\');">Next</a></p>';
 			break;
     }    
@@ -457,9 +480,9 @@ function confirmWikipediaAccount() {
 	$('#nextlink')[0].innerHTML = 'Sending confirmation e-mail...';
 	logAction('next', '');
 	username = $('#username')[0].value;
-	// sendConfirmationEmail(username, function() {
+	sendConfirmationEmail(username, function() {
 		goToStep('EnterConfirmationCode');
-	// });
+	});
 }
 
 function confirmCodeUI() {
