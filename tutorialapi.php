@@ -2,8 +2,24 @@
 require ( dirname( __FILE__ ) . '/includes/WebStart.php' );
 require_once ( dirname( __FILE__ ) . '/apibot/apibot.php' );
 
-function normalize_user($user) {
+function normalizeUser($user) {
 	return ucfirst(str_replace(' ', '_', $user));
+}
+
+function getConfirmationCode($user) {
+	global $wgTwaSecretKey;
+	return base_convert(md5($wgTwaSecretKey . $user), 16, 36);
+}
+
+function getPasswordHash($user, $password) {
+	global $wgTwaSecretKey;
+	# Salt and stretch - iteration count chosen to take about 2 secs
+	$salt = $wgTwaSecretKey . $user;
+	$password_hash = '';
+	for ($i=0; $i<3000000; $i++) {
+		$password_hash = md5($password_hash . $password . $salt);
+	}
+	return base_convert($password_hash, 16, 36); # Compress
 }
 
 if ($wgRequest->getVal( 'action' ) == '') {
@@ -24,6 +40,17 @@ account to be confirmed. Takes parameter user (Wikipedia username).</p>
 <p>action=confirmcode: Tests if the code entered by a user matches the one
 sent out by the sendconfirmationemail request. Takes parameter user (Wikipedia
 username), code (the code to test).</p>
+
+<p>action=createuser: Creates a user account. Parameters: user (must match
+Wikipedia username), code (code sent by sendconfirmationemail action to
+confirm ownership of Wikipedia username), password, email. Returns 1 if
+successful, else error code.</p>
+
+<p>action=login: Logs in as a previously created user. Parameters: user
+(must match Wikipedia username), password. Sets PHP session cookies and
+prints '1' if successful, else error code.</p>
+
+<p>action=logout: Logs out currently logged-in user, if any.</p>
 EOT;
 } else if ($wgRequest->getVal( 'action' ) == 'log') {
 	$dbw = wfGetDB( DB_MASTER );
@@ -41,7 +68,7 @@ EOT;
 		array()
 	);
 	if ($res) {
-		print 'Success';
+		print '1';
 	}
 	$dbw->close();
 } else if ($wgRequest->getVal( 'action' ) == 'countlog') {
@@ -64,8 +91,8 @@ EOT;
 	$login['password'] = $wgTwaUserPassword;
 	$login['wiki'] = $wikipedia_en;
 	$bot = new \apibot\Apibot ( $login );
-	$user = $wgRequest->getVal('user');
-	$code = base_convert(md5($wgTwaSecretKey . $user), 16, 36);
+	$user = normalizeUser($wgRequest->getVal('user'));
+	$code = getConfirmationCode($user);
 	
 	$bot->email_user ( $user, 'The Wikipedia Adventure confirmation code',
 		"This was sent to the e-mail you registered with your Wikipedia account.\n" .
@@ -75,13 +102,74 @@ EOT;
 } else if ($wgRequest->getVal( 'action' ) == 'confirmcode') {
 	global $wgTwaSecretKey;
 	$entered_code = $wgRequest->getVal( 'code' );
-	$user = $wgRequest->getVal('user');
-	$expected_code = base_convert(md5($wgTwaSecretKey . $user), 16, 36);
+	$user = normalizeUser($wgRequest->getVal('user'));
+	$expected_code = getConfirmationCode($user);
 	if ($entered_code == $expected_code) {
 		print '1';
 	} else {
 		print '0';
 	}
+} else if ($wgRequest->getVal( 'action' ) == 'createuser') {
+	$dbw = wfGetDB( DB_MASTER );
+	$code = $wgRequest->getVal( 'code' );
+	$user = normalizeUser($wgRequest->getVal( 'user' ));
+	$password = $wgRequest->getVal( 'password' );
+	$email = $wgRequest->getVal( 'email' );
+
+	// Check if user already exists
+	$res = $dbw->selectField('tutorial_user', 'tutorial_user_id', array('tutorial_user_name' => $user));
+	if ($res) {
+		print 'alreadyexists';
+		exit(0);
+	}
+		
+	// Check confirmation code
+	$expected_code = getConfirmationCode($user);
+	if ($code != $expected_code) {
+		print 'confirmfailed';
+		exit(0);
+	}
+	
+	$res = $dbw->insert(
+		'tutorial_user',
+		array(
+			'tutorial_user_name' => $user,
+			'tutorial_user_ip' => $_SERVER['REMOTE_ADDR'],
+			'tutorial_user_password' => getPasswordHash($user, $password),
+			'tutorial_user_email' => $email,
+			'tutorial_user_create_time' => date("c"),
+		),
+		__METHOD__,
+		array()
+	);
+	if (!$res) {
+		print 'insertfailed';
+		exit(0);
+	}
+
+	print '1';
+	$dbw->close();
+} else if ($wgRequest->getVal( 'action' ) == 'login') {
+	$dbw = wfGetDB( DB_MASTER );
+	$user = normalizeUser($wgRequest->getVal( 'user' ));
+	$password = $wgRequest->getVal( 'password' );
+	$password_hash_expected = $dbw->selectField('tutorial_user', 'tutorial_user_password', array('tutorial_user_name' => $user));
+	if (!$password_hash_expected) {
+		print 'nosuchuser';
+		exit(0);
+	}
+	$password_hash = getPasswordHash($user, $password);
+	if ($password_hash != $password_hash_expected) {
+		print 'badpassword';
+		exit(0);
+	}
+	session_start();
+	$_SESSION['user'] = $user;
+	print '1';
+	$dbw->close();
+} else if ($wgRequest->getVal( 'action' ) == 'logout') {
+	session_destroy();
+	print '1';
 } else {
 	print 'Unimplemented';
 }

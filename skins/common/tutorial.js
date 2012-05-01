@@ -40,6 +40,47 @@ function logActionFunc(action, value, func) {
 		func);
 }
 
+function sendConfirmationEmail(user, func) {
+	tutorialapi(
+		{ action: 'sendconfirmationemail',
+		  user: user },
+		func);
+}
+
+function confirmCode(user, code, func) {
+	tutorialapi(
+		{ action: 'confirmcode',
+		  user: user,
+		  code: code },
+		function(data) {
+			func(data === "1");
+		});
+}
+
+function createuser(user, code, password, email, func) {
+	tutorialapi(
+		{ action: 'createuser',
+		  user: user,
+		  code: code,
+		  password: password,
+		  email: email },
+		func);
+}
+
+function login(user, password, func) {
+	tutorialapi(
+		{ action: 'login',
+		  user: user,
+		  password: password },
+		func);
+}
+
+function logout(func) {
+	tutorialapi(
+		{ action: 'logout' },
+		func);
+}
+
 function getStep() {
     result = $.cookie("twa-step");
     return result;
@@ -386,14 +427,97 @@ function updateCreateUser(step, instructions) {
 			break;
 		case "ShowSuccessScreen":
 			instructions.innerHTML =
-				'<p>Under construction</p>';
+				'<p>You are now done creating an account. Your username appears in the upper-right corner of the screen.</p>' +
+				'<p>This page suggests links for more information. ' +
+				'You may also receive a page asking you to complete a user page. This is optional.</p>' +
+				'<p>Press <b>Next</b> for your <b>Real Wikipedia Task</b>.</p>' +
+                '<p><a onclick="logAction(\'next\', \'\'); goToStep(\'RealWikipediaTask\');">Next</a></p>';
+			// highlightElement('#pt-userpage');
+			break;
+		case "RealWikipediaTask":
+			instructions.innerHTML =
+				'<p>It\'s now time to create an account on the real Wikipedia. '
+				'Visit <a href="http://en.wikipedia.org" onclick="$(this).attr(\'target\', \'_blank\');">en.wikipedia.org</a> and follow the steps in this lesson. Then click <b>Next</b> below. ' +
+				'You must create an account to continue.</p>' +
+                '<p><a onclick="logAction(\'next\', \'\'); goToStep(\'Twa/CreateAccount\');">Next</a></p>';
 			break;
     }    
 }
 
+function updateArticleTalk(step, instructions) {
+    switch(step) {
+        case "Start":
+			instructions.innerHTML =
+				"Under construction. Come back later for more!";
+			break;
+	}
+}
+
+function confirmWikipediaAccount() {
+	$('#nextlink')[0].innerHTML = 'Sending confirmation e-mail...';
+	logAction('next', '');
+	username = $('#username')[0].value;
+	// sendConfirmationEmail(username, function() {
+		goToStep('EnterConfirmationCode');
+	// });
+}
+
+function confirmCodeUI() {
+	$('#nextlink')[0].innerHTML = 'Validating confirmation code...';
+	logAction('next', '');
+	code = $('#code')[0].value;
+	confirmCode(username, code, function(success) {
+		if (success) {
+			goToStep('WikipediaAccountConfirmed');
+		} else {
+			goToStep('ConfirmationFailed');
+		}
+	});
+}
+
 function registerCheck() {
-	logAction('register', ''); 
-    goToStep('RegisterSuccess');
+	$('#registerbutton')[0].innerHTML = 'Registering user...';
+	logAction('register', username); 
+	password = $('#password')[0].value;
+	passwordconfirm = $('#passwordconfirm')[0].value;
+	if (password != passwordconfirm) {
+		goToStep('PasswordsNoMatch');
+		return;
+	}
+	email = $('#email')[0].value;
+	createuser(username, code, password, email, function(result) {
+		if (result == '1') {
+			login(username, password, function(result) {
+				if (result == '1') {
+					goToStep('RegisterSuccess');
+				} else {
+					assert(false); // Unexpected result
+				}
+			});
+		} else if (result == 'alreadyexists') {
+			goToStep('UserAlreadyExists');
+		} else {
+			assert(false); // Unexpected result
+		}
+	});
+}
+
+function loginCheck() {
+	$('#loginbutton')[0].innerHTML = 'Logging in...';
+	username = $('#username')[0].value;
+	password = $('#password')[0].value;
+	logAction('login', username); 
+	login(username, password, function(result) {
+		if (result == '1') {
+			goToStep('LoginSuccess');
+		} else if (result == 'nosuchuser') {
+			goToStep('LoginNoSuchUser');
+		} else if (result == 'badpassword') {
+			goToStep('LoginBadPassword');
+		} else {
+			assert(false); // Unexpected result
+		}
+	});
 }
 
 function updateTwa(step, instructions) {
@@ -403,32 +527,110 @@ function updateTwa(step, instructions) {
                 '<p><b>Select a level</b></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Making your first edit\', \'\'); setStep(\'FirstEdit/Welcome\');">Making your first edit</a></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Registering a user account\', \'\'); setStep(\'CreateUser/Start\');">Registering a user account</a></p>' +
+                '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Registering a user account\', \'\'); setStep(\'ArticleTalk/Start\');">Leaving messages on article talk pages</a></p>' +
                 '<p><i>More levels to come!</i></p>';
             break;
         case "CreateAccount":
             instructions.innerHTML =
                 '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
                 '<p>Please register so you can save your progress.</p>' +
-                '<form name="register" onsubmit="registerCheck(); return false;">' +
-                'Username (same as your Wikipedia username):<br/>' + 
-                '<input type="text" name="username" /><br />' +
-                'Password (may be different from your Wikipedia password):<br/>' + 
-                '<input type="text" name="password" /><br />' +
-                'Confirm password:<br/>' + 
-                '<input type="text" name="password-confirm" /><br/>' +
-                'E-mail address:<br/>' + 
-                '<input type="text" name="e-mail" />' +
-                '<p><input name="registerButton" type="submit" value="Register" /></p>' +
+                '<form name="register">' +
+                'What is your Wikipedia username?<br/>' + 
+                '<input id="username" type="text" name="username" /><br />' +
+                'Make sure your Wikipedia account has a <b>confirmed e-mail address</b> set, then click <b>Next</b>.<br/>' + 
+                '<p id="nextlink"><a onclick="confirmWikipediaAccount();">Next</a></p>';
                 '</form>';
+            break;
+        case "EnterConfirmationCode":
+            instructions.innerHTML =
+                '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                '<p>Now enter the code you received in the confirmation e-mail and click <b>Next</b>.</p>' +
+                '<form name="register">' +
+                '<input id="code" type="password" name="code" /><br />' +
+                '<p id="nextlink"><a onclick="confirmCodeUI();">Next</a></p>';
+                '</form>';
+			break;
+		case "ConfirmationFailed":
+            instructions.innerHTML =
+                '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                '<p>That code is incorrect. Please enter the code you received in the confirmation e-mail and click <b>Next</b>.</p>' +
+                '<form name="register">' +
+                '<input id="code" type="password" name="code" /><br />' +
+                '<p id="nextlink"><a onclick="confirmCodeUI();">Next</a></p>';
+                '</form>';
+			break;
+        case "WikipediaAccountConfirmed":
+            instructions.innerHTML =
+                 '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                 '<p>Confirmation successful. You now need to create an account here at The Wikipedia Adventure.</p>' +
+                 '<form name="register" onsubmit="registerCheck(); return false;">' +
+                 'Enter a password (may be different from your Wikipedia password):<br/>' + 
+                 '<input id="password" type="password" name="password" /><br />' +
+                 'Confirm password:<br/>' + 
+                 '<input id="passwordconfirm" type="password" name="password-confirm" /><br/>' +
+                 'E-mail address:<br/>' + 
+                 '<input id="email" type="text" name="email" />' +
+                 '<p><input id="registerbutton" name="registerButton" type="submit" value="Register" /></p>' +
+                 '</form>';
+            break;
+        case "PasswordsNoMatch":
+            instructions.innerHTML =
+                 '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                 '<p>Passwords do not match. Please try again</p>' +
+                 '<form name="register" onsubmit="registerCheck(); return false;">' +
+                 'Enter a password:<br/>' + 
+                 '<input id="password" type="password" name="password" /><br />' +
+                 'Confirm password:<br/>' + 
+                 '<input id="passwordconfirm" type="password" name="password-confirm" /><br/>' +
+                 'E-mail address:<br/>' + 
+                 '<input id="email" type="text" name="email" />' +
+                 '<p><input id="registerbutton" name="registerButton" type="submit" value="Register" /></p>' +
+                 '</form>';
+			$('#email')[0].value = email;
+            break;
+        case "UserAlreadyExists":
+            instructions.innerHTML =
+                 '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                 '<p>That user already has an account at The Wikipedia Adventure. Click <b>Log in</b> above to log in.</p>';
             break;
         case "RegisterSuccess":
             instructions.innerHTML =
-                '<p>Under construction</p>';
+                 '<p>You have successfully created an account at The Wikipedia Adventure. ' +
+                 'In the future, click the "Log in" link at the top-right of the yellow welcome box ' +
+                 'to log in.</p>' +
+                 '<p>Your progress has been saved. Click <b>Level menu</b> below to select your next lesson.</p>';
+                 '<p><a onclick="logAction(\'levelmenu\', \'\'); goToStep(\'LevelMenu\');">Level Menu</a></p>';
             break;
         case "Login":
+			loginForm =
+                 '<form name="login" onsubmit="loginCheck(); return false;">' +
+                 'Your Wikipedia username:<br/>' + 
+                 '<input id="username" type="text" name="username" /><br />' +
+                 'Your The Wikipedia Adventure password:<br/>' + 
+                 '<input id="password" type="password" name="password" /><br />' +
+                 '<p><input id="loginbutton" name="loginButton" type="submit" value="Log in" /></p>' +
+                 '</form>';
             instructions.innerHTML =
-                '<p>Under construction</p>';
+                 '<p>If you have already created an account here at The Wikipedia Adventure, log in below.</p>' +
+                 loginForm;
             break;
+        case "LoginNoSuchUser":
+            instructions.innerHTML =
+                 '<p>The user you entered does not exist. Note that you have to create separate ' +
+                 'accounts at Wikipedia and The Wikipedia Adventure. Please try again or refresh to ' +
+                 'start over.</p>' +
+                 loginForm;
+            break;
+        case "LoginBadPassword":
+            instructions.innerHTML =
+                 '<p>The password you entered is incorrect. Please try again.</p>' +
+                 loginForm;
+            break;
+         case "LoginSuccess":
+            instructions.innerHTML =
+                 '<p>Log in successful. Proceed to <b>Level menu</b> by clicking below.</p>' +
+                 '<p><a onclick="logAction(\'levelmenu\', \'\'); goToStep(\'LevelMenu\');">Level Menu</a></p>';
+			break;
     }
     centerElement(instructions);
 }
@@ -490,9 +692,9 @@ setAdminMode();
 if (!adminModeOn) {
     createDynamicElements();
     if (document.URL.indexOf("/Main_Page") != -1 &&
-	getStep() != 'CreateUser/Start')
-    {
-	setStep("FirstEdit/Welcome");
+		getStep().indexOf("/Start") == -1)
+	{
+		setStep("FirstEdit/Welcome");
     }
     updateOverlays();
 }
