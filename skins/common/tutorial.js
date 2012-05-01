@@ -77,13 +77,19 @@ function login(user, password, func) {
 		{ action: 'login',
 		  user: user,
 		  password: password },
-		func);
+		function(result) {
+			$.cookie("logged_in", result == '1' ? '1' : '', { path: '/' });
+			func(result);
+		});
 }
 
 function logout(func) {
 	tutorialapi(
 		{ action: 'logout' },
-		func);
+		function(result) {
+			$.cookie("logged_in", '', { path: '/' });
+			func(result);
+		});
 }
 
 function getStep() {
@@ -548,6 +554,7 @@ function updateTwa(step, instructions) {
     switch(step) {
         case 'LevelMenu':
             instructions.innerHTML =
+                '<div style="text-align:right;"><a onclick="logAction(\'logout\', \'\'); logout(function() { goToStep(\'Twa/Logout\'); });">Log out</a></div>' +
                 '<p><b>Select a level</b></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Making your first edit\', \'\'); setStep(\'FirstEdit/Welcome\');">Making your first edit</a></p>' +
                 '<p><a href="' + wgArticlePath.replace('$1', 'Main_Page') + '" onclick="logAction(\'Registering a user account\', \'\'); setStep(\'CreateUser/Start\');">Registering a user account</a></p>' +
@@ -632,7 +639,7 @@ function updateTwa(step, instructions) {
                  '<input id="username" type="text" name="username" /><br />' +
                  'Your The Wikipedia Adventure password:<br/>' + 
                  '<input id="password" type="password" name="password" /><br />' +
-                 '<p><input id="loginbutton" name="loginButton" type="submit" value="Log in" /></p>' +
+                 '<p id="loginbutton"><input name="loginButton" type="submit" value="Log in" /></p>' +
                  '</form>';
             instructions.innerHTML =
                  '<p>If you have already created an account here at The Wikipedia Adventure, log in below.</p>' +
@@ -654,6 +661,12 @@ function updateTwa(step, instructions) {
             instructions.innerHTML =
                  '<p>Log in successful. Proceed to <b>Level menu</b> by clicking below.</p>' +
                  '<p><a onclick="logAction(\'levelmenu\', \'\'); goToStep(\'LevelMenu\');">Level Menu</a></p>';
+			break;
+         case "Logout":
+            instructions.innerHTML =
+                 '<div style="text-align:right;"><a onclick="logAction(\'login\', \'\'); goToStep(\'Twa/Login\');">Log in</a></div>' +
+                 '<p>You are now logged out. Proceed to the <b>Welcome</b> box by clicking below, or click <b>Log in</b> above to log in as another user.</p>' +
+                 '<p><a onclick="logAction(\'welcome\', \'\'); goToStep(\'FirstEdit/Welcome\');">Welcome</a></p>';
 			break;
     }
     centerElement(instructions);
@@ -717,8 +730,12 @@ if (!adminModeOn) {
     createDynamicElements();
     if (document.URL.indexOf("/Main_Page") != -1 &&
 		getStep().indexOf("/Start") == -1)
-	{
+    {
+	if ($.cookie("logged_in")) {
+		setStep("Twa/LevelMenu");
+	} else {
 		setStep("FirstEdit/Welcome");
+	}
     }
     updateOverlays();
 }
