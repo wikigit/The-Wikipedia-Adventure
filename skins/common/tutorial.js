@@ -472,6 +472,7 @@ function updateArticleTalk(step, instructions) {
         case "Start":
 			instructions.innerHTML =
 				"Under construction. Come back later for more!";
+			setStep('FirstEdit/Welcome');
 			break;
 	}
 }
@@ -593,7 +594,7 @@ function updateTwa(step, instructions) {
                  '<input id="passwordconfirm" type="password" name="password-confirm" /><br/>' +
                  'E-mail address:<br/>' + 
                  '<input id="email" type="text" name="email" />' +
-                 '<p><input id="registerbutton" name="registerButton" type="submit" value="Register" /></p>' +
+                 '<p id="registerbutton"><input name="registerButton" type="submit" value="Register" /></p>' +
                  '</form>';
             break;
         case "PasswordsNoMatch":
